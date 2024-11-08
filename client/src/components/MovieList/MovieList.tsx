@@ -12,6 +12,8 @@ type Movie = {
   vote_average: string;
   vote_count: number;
   release_date: string;
+  movie: string;
+  result: string;
 };
 
 export default function MoviesList() {

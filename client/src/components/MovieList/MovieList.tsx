@@ -85,13 +85,13 @@ export default function MoviesList() {
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
               />
-              <div className="movie-hover-text">
+              <article className="movie-hover-text">
                 <h2>{movie.title}</h2>
                 <p>{movie.overview}</p>
                 <p>{movie.vote_average} ⭐</p>
                 <p>{movie.vote_count}❤️</p>
                 <p>Date de sortie: {movie.release_date}</p>
-              </div>
+              </article>
             </article>
           </section>
         ))}

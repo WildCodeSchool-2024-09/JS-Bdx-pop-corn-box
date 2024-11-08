@@ -46,15 +46,17 @@ export default function SearchBar({
     keys: ["title"],
   };
   const fuse = useMemo(() => new Fuse(movies, fuseOptions), [movies]);
-  const getFilteredMovies = () => {
-    if (!searchTerm) return movies;
-    const results = fuse.search(searchTerm);
-    return results.map((result) => result.item);
-  };
 
   useEffect(() => {
-    setFilteredMovies(getFilteredMovies());
-  }, [searchTerm]);
+    if (!searchTerm === true) {
+      setFilteredMovies(movies);
+      return;
+    }
+    const filteredMovies = fuse
+      .search(searchTerm)
+      .map((results) => results.item);
+    setFilteredMovies(filteredMovies);
+  }, [searchTerm, fuse, setFilteredMovies, movies]);
 
   return (
     <>

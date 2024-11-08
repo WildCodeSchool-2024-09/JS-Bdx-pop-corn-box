@@ -1,13 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.css";
-import Fuse from "fuse.js";
-import SearchBar from "./searchBar";
+
+import SearchBar from "../SearchBar/searchBar";
 
 type Movie = {
   id: number;
   title: string;
   poster_path: string;
-  total_pages: number;
   overview: string;
   vote_average: string;
   vote_count: number;
@@ -16,26 +15,10 @@ type Movie = {
 
 export default function MoviesList() {
   const [movies, setMovie] = useState<Movie[]>([]);
+  const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
   const [pages, setPages] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [totalPages, setTotalPages] = useState(1);
-
-  const fuseOptions = {
-    isCaseSensitive: false,
-    includeScore: false,
-    shouldSort: true,
-    includeMatches: false,
-    findAllMatches: false,
-    minMatchCharLength: 1,
-    location: 0,
-    threshold: 0.6,
-    distance: 100,
-    useExtendedSearch: false,
-    ignoreLocation: false,
-    ignoreFieldNorm: false,
-    fieldNormWeight: 1,
-    keys: ["title"],
-  };
 
   const options = {
     method: "GET",
@@ -54,6 +37,7 @@ export default function MoviesList() {
       .then((res) => res.json())
       .then((data) => {
         setMovie(data.results);
+        setFilteredMovies(data.results);
         setTotalPages(data.total_pages);
       })
       .catch((err) => console.error(err));
@@ -66,18 +50,14 @@ export default function MoviesList() {
     setPages(() => (pages > 1 ? pages - 1 : pages));
   };
 
-  const fuse = useMemo(() => new Fuse(movies, fuseOptions), [movies]);
-  const getFilteredMovies = () => {
-    if (!searchTerm) return movies;
-    const results = fuse.search(searchTerm);
-    return results.map((result: { item: Movie }) => result.item);
-  };
-
-  const filteredMovies = getFilteredMovies();
-
   return (
     <>
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <SearchBar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        movies={movies}
+        setFilteredMovies={setFilteredMovies}
+      />
       <main>
         {filteredMovies.map((movie: Movie) => (
           <section key={movie.id} className="movieList">

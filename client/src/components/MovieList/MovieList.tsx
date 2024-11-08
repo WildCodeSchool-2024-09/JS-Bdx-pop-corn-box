@@ -18,6 +18,7 @@ export default function MoviesList() {
   const [movies, setMovie] = useState<Movie[]>([]);
   const [pages, setPages] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
+  const [totalPages, setTotalPages] = useState(1);
 
   const fuseOptions = {
     isCaseSensitive: false,
@@ -53,16 +54,16 @@ export default function MoviesList() {
       .then((res) => res.json())
       .then((data) => {
         setMovie(data.results);
-        setPages(data.total_pages);
+        setTotalPages(data.total_pages);
       })
       .catch((err) => console.error(err));
   }, [pages]);
 
   const handleNextPage = () => {
-    setPages(() => (pages === 0 ? 1 : pages + 1));
+    setPages(() => (pages < totalPages ? pages + 1 : pages));
   };
   const handlePrevPage = () => {
-    setPages(() => (pages === 0 ? 1 : pages - 1));
+    setPages(() => (pages > 1 ? pages - 1 : pages));
   };
 
   const fuse = useMemo(() => new Fuse(movies, fuseOptions), [movies]);

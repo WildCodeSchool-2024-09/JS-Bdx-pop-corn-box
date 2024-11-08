@@ -19,30 +19,25 @@ import Movie from "./pages/Movie";
 
 // Create router configuration with routes
 // You can add more routes as you build out your app!
-const router = createBrowserRouter([
-  {
-    path: "/", // The root path
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Accueil />,
-        id: "app",
-        children: [
-          {
-            path: "/",
-            element: <Accueil />,
-          },
-        ],
-      },
-      {
-        path: "/movies",
-        element: <Movie />,
-      },
-    ], // Renders the App component for the home page
-  },
+const router = createBrowserRouter(
+  [
+    {
+      path: "/", // The root path
+      element: <App />,
+      children: [
+        {
+          path: "/",
+          element: <Accueil />,
+        },
+        {
+          path: "/Movies",
+          element: <Movie />,
+        },
+      ],
+    },
+  ], // Renders the App component for the home page
   // Try adding a new route! For example, "/about" with an About component
-]);
+);
 
 /* ************************************************************************* */
 

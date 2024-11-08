@@ -12,8 +12,6 @@ type Movie = {
   vote_average: string;
   vote_count: number;
   release_date: string;
-  movie: string;
-  result: string;
 };
 
 export default function MoviesList() {
@@ -71,7 +69,7 @@ export default function MoviesList() {
   const getFilteredMovies = () => {
     if (!searchTerm) return movies;
     const results = fuse.search(searchTerm);
-    return results.map((result) => result.item);
+    return results.map((result: { item: Movie }) => result.item);
   };
 
   const filteredMovies = getFilteredMovies();
@@ -80,7 +78,7 @@ export default function MoviesList() {
     <>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <main>
-        {filteredMovies.map((movie) => (
+        {filteredMovies.map((movie: Movie) => (
           <section key={movie.id} className="movieList">
             <article className="movie-content">
               <img

@@ -11,6 +11,7 @@ export default function SearchBar({
     const value = event.target.value;
     setSearchTerm(value);
   };
+  console.info(searchTerm);
 
   return (
     <>

@@ -51,8 +51,10 @@ export default function MoviesList() {
       options,
     )
       .then((res) => res.json())
-      .then((data) => setMovie(data.results))
-      .then((data) => setPages(data.total_pages))
+      .then((data) => {
+        setMovie(data.results);
+        setPages(data.total_pages);
+      })
       .catch((err) => console.error(err));
   }, [pages]);
 

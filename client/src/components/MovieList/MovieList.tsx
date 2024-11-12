@@ -3,9 +3,10 @@ import "./style.css";
 
 import SearchBar from "../SearchBar/searchBar";
 
-type Movie = {
+export type CineListProps = {
   id: number;
   title: string;
+  name: string;
   poster_path: string;
   overview: string;
   vote_average: string;
@@ -14,8 +15,8 @@ type Movie = {
 };
 
 export default function MoviesList() {
-  const [movies, setMovie] = useState<Movie[]>([]);
-  const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
+  const [cineList, setCineList] = useState<CineListProps[]>([]);
+  const [filteredList, setFilteredList] = useState<CineListProps[]>([]);
   const [pages, setPages] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [totalPages, setTotalPages] = useState(1);
@@ -36,8 +37,8 @@ export default function MoviesList() {
     )
       .then((res) => res.json())
       .then((data) => {
-        setMovie(data.results);
-        setFilteredMovies(data.results);
+        setCineList(data.results);
+        setFilteredList(data.results);
         setTotalPages(data.total_pages);
       })
       .catch((err) => console.error(err));
@@ -55,11 +56,11 @@ export default function MoviesList() {
       <SearchBar
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
-        movies={movies}
-        setFilteredMovies={setFilteredMovies}
+        cineList={cineList}
+        setFilteredList={setFilteredList}
       />
       <main>
-        {filteredMovies.map((movie: Movie) => (
+        {filteredList.map((movie: CineListProps) => (
           <section key={movie.id} className="movieList">
             <article className="movie-content">
               <img

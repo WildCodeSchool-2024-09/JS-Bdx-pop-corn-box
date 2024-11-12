@@ -1,30 +1,22 @@
 import Fuse from "fuse.js";
 import { useEffect, useMemo } from "react";
-
+import type { CineListProps } from "../MovieList/MovieList";
 type SearchBarProps = {
   searchTerm: string;
   setSearchTerm: (value: string) => void;
-  movies: Movie[];
-  setFilteredMovies: (movies: Movie[]) => void;
-};
-type Movie = {
-  id: number;
-  title: string;
-  poster_path: string;
-  overview: string;
-  vote_average: string;
-  vote_count: number;
-  release_date: string;
+  cineList: CineListProps[];
+  setFilteredList: (movies: CineListProps[]) => void;
 };
 
 export default function SearchBar({
   searchTerm,
   setSearchTerm,
-  movies,
-  setFilteredMovies,
+  cineList,
+  setFilteredList,
 }: SearchBarProps) {
   const handleSearchTerm = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
+
     setSearchTerm(value);
   };
   console.info(searchTerm);
@@ -43,20 +35,18 @@ export default function SearchBar({
     ignoreLocation: false,
     ignoreFieldNorm: false,
     fieldNormWeight: 1,
-    keys: ["title"],
+    keys: ["title", "name"],
   };
-  const fuse = useMemo(() => new Fuse(movies, fuseOptions), [movies]);
+  const fuse = useMemo(() => new Fuse(cineList, fuseOptions), [cineList]);
 
   useEffect(() => {
     if (!searchTerm === true) {
-      setFilteredMovies(movies);
+      setFilteredList(cineList);
       return;
     }
-    const filteredMovies = fuse
-      .search(searchTerm)
-      .map((results) => results.item);
-    setFilteredMovies(filteredMovies);
-  }, [searchTerm, fuse, setFilteredMovies, movies]);
+    const filteredList = fuse.search(searchTerm).map((results) => results.item);
+    setFilteredList(filteredList);
+  }, [fuse, searchTerm, setFilteredList, cineList]);
 
   return (
     <>

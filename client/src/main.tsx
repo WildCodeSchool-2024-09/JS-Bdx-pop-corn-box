@@ -26,7 +26,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/animes",
-    element: <AnimeList />
+    element: <AnimeList />,
   },
   // Try adding a new route! For example, "/about" with an About component
 ]);

@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Jersey+10&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Jersey+10&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 0, 36, 0.9780287114845938) 0%,
+    rgba(255, 0, 56, 0.908000700280112) 44%,
+    rgba(2, 0, 36, 1) 100%
+  );
+}
+
+.container1 {
+  position: relative;
+  display: flex;
+}
+
+article {
+  width: 30%;
+}
+
+.movie-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.overview {
+  font-family: "Host Grotesk", sans-serif;
+  position: absolute;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 1.2rem;
+  width: 60%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.container1:hover .overview {
+  opacity: 0.7;
+}
+
+.container1:hover .movie-img {
+  opacity: 0.3;
+}
+
+.slick-slide {
+  text-align: center;
+  padding: 10px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.slick-slide .movie-img {
+  width: 60%;
+  justify-self: center;
+}
+
+.title {
+  font-family: "Sour Gummy", sans-serif;
+  color: whitesmoke;
+  font-size: 25px;
+}
+.movie-container {
+  border-radius: 10%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  content: "";
+  display: none;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  opacity: 1;
+}
+
+.slick-prev {
+  left: -50px;
+}
+
+.slick-next {
+  right: -50px;
+}
+
+.slick-prev.slick-disabled,
+.slick-next.slick-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.slider-container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.slick-slide {
+  padding: 0 10px;
+}
+
+.slick-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.slick-slide img:hover {
+  transform: scale(1.05);
+}
+
+.slick-track {
+  display: flex;
+  justify-content: center;
+}
+
+.slick-prev,
+.slick-next {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  color: transparent;
+  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  opacity: 1;
+}
+
+.slick-prev {
+  left: -50px;
+}
+
+.slick-next {
+  right: -50px;
+}
+
+.slick-prev.slick-disabled,
+.slick-next.slick-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+}
+
+.navlink {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+nav {
+  font-family: "Sour Grummy", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.catalogueSeries img {
+  width: 300px;
+  height: 500px;
+  gap: 1rem;
+  border-radius: 10px;
+}
+
+.catalogueSeries {
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.button {
+  background-color: #404e7c;
+  cursor: pointer;
+  width: 40%;
+  height: 50px;
+  margin: 30px;
+  border-radius: 15px;
+  border: 0px;
+  color: aqua;
+  transition: 0.5s;
+  font-size: 1.2rem;
+}
+
+.button:hover {
+  background-color: #71b48d;
+  transform: scale(1.1);
+}
+
+.series-overview {
+  font-family: "Host Grotesk", sans-serif;
+  position: absolute;
+  border-radius: 10px;
+  top: 46.8%;
+  left: 154%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  width: 300px;
+  height: 500px;
+}
+
+.series-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.containerSeries {
+  position: relative;
+  display: flex;
+}
+
+.containerSeries:hover .series-overview {
+  opacity: 0.7;
+}
+
+.containerSeries:hover .series-img {
+  opacity: 0.3;
+}

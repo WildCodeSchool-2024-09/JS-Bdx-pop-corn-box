@@ -17,7 +17,7 @@ body {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
-  color: rgb(214, 221, 221)
+  color: rgb(214, 221, 221);
 }
 
 .carousel-wrapper {
@@ -111,7 +111,7 @@ body {
 }
 
 .image-wrapper:hover .like-button-container {
-  display: flex; 
+  display: flex;
 }
 
 .like-count {

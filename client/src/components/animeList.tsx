@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import AnimeCard from "./animeCard";
 import "./animeList.css";
-import SearchBar from "./SearchBar/searchBar";
-import Header from "./header";
 
 type Anime = {
   id: number;

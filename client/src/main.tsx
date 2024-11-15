@@ -12,7 +12,7 @@ import AnimeList from "./components/animeList";
 import MoviesList from "./components/MovieList/MovieList";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
-import Accueil from "./components/accueil";
+
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
 

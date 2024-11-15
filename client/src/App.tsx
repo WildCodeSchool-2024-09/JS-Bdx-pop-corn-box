@@ -1,3 +1,4 @@
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./CssComponents/Crrousels.css";
@@ -13,6 +14,7 @@ function App() {
       <PopularSeries />
       <figcaption className="title">Popular Anims</figcaption>
       <PopularAnims />
+
     </>
   );
 }

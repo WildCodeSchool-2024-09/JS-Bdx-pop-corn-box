@@ -1,9 +1,4 @@
 body {
-  display: flex;
-  flex-direction: column;
-}
-
-body {
   background: linear-gradient(
     0deg,
     rgba(2, 0, 36, 0.98) 0%,

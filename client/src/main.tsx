@@ -8,16 +8,12 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 
-import SeriesList from "./components/SeriesList/SeriesList";
-//import HomePage from"./pages/HomePage";//
-
 import AnimeList from "./components/animeList";
 
-
+import MoviesList from "./components/MovieList/MovieList";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
-import Accueil from "./components/accueil";
-import Movie from "./pages/Movie";
+
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
 
@@ -33,23 +29,17 @@ const router = createBrowserRouter(
       element: <App />,
       children: [
         {
-          path: "/",
-          element: <Accueil />,
+          path: "/Movies",
+          element: <MoviesList />,
         },
         {
-          path: "/Movies",
-          element: <Movie />,
+          path: "/animes",
+          element: <AnimeList />,
         },
-         {
-    path: "/animes",
-    element: <AnimeList />,
-  },
 
-  {
-    path: "/Series",
-    element: <SeriesList />,
-  },
-
+        {
+          path: "/Series",
+        },
       ],
     },
   ], // Renders the App component for the home page

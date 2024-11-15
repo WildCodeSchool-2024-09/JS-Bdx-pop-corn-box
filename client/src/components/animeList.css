@@ -1,26 +1,20 @@
-section {
-  max-width: 100%;
-  margin: 0 auto;
+.animeContainer {
+  margin: auto;
   text-align: center;
+  width: 80%;
 }
-img {
-  width: 23rem;
+.animePicture {
+  width: 100%;
 }
 
 h1 {
   font-size: 24px;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
-ul.anime-grid {
+.anime-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  list-style: none;
-  padding: 0;
-  justify-items: center;
-}
-
-li.anime-card {
-  max-width: 23rem;
+  gap: 1rem;
 }

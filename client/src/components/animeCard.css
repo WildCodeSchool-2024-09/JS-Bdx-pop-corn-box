@@ -1,10 +1,10 @@
-figure {
+.figureAnime {
   position: relative;
   margin: 0;
   border-radius: 1.8rem;
   overflow: hidden;
 }
-figcaption {
+.figcaptionAnime {
   display: none;
   flex-direction: column;
   justify-content: center;

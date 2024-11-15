@@ -12,13 +12,18 @@ header {
   justify-content: space-around;
 }
 
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
 a {
   color: aliceblue;
+  text-decoration: none;
 }
 ul {
   display: flex;
   justify-content: center;
-  list-style-type: none;
 }
 
 header img {

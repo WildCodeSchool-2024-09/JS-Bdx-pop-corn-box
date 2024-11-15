@@ -1,13 +1,21 @@
-import "./App.css";
-import { Link } from "react-router-dom";
 
-import HomePage from "./pages/HomePage";
 
-export default function App() {
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./CssComponents/Crrousels.css";
+import PopularAnims from "./components/Anims/accueil";
+import PopularMovies from "./components/PopularMovies/acceuil";
+import PopularSeries from "./components/PopularSeries/accueil";
+function App() {
   return (
     <>
-      <Link to="/Series">Séries</Link>
-      <HomePage />
+      <figcaption className="title">Popular Movies</figcaption>
+      <PopularMovies />
+      <figcaption className="title">Popular Series</figcaption>
+      <PopularSeries />
+      <figcaption className="title">Popular Anims</figcaption>
+      <PopularAnims />
+
     </>
   );
 }

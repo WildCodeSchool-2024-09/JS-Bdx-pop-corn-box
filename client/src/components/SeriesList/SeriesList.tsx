@@ -36,7 +36,7 @@ export default function SeriesList() {
       },
     };
     fetch(
-      "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1",
+      "https://api.themoviedb.org/3/tv/top_rated?language=fr-US&page=1",
       options,
     )
       .then((res) => res.json())
@@ -58,7 +58,7 @@ export default function SeriesList() {
         serie.id === id
           ? {
               ...serie,
-              likes: serie.isLiked ? serie.likes - 1 : serie.likes + 1,
+              likes: serie.isLiked ? serie.likes + 1 : serie.likes - 1,
               isLiked: !serie.isLiked,
             }
           : serie,
@@ -67,12 +67,12 @@ export default function SeriesList() {
   };
 
   return (
-    <div className="slider-container">
+    <section className="slider-container">
       <h2 className="carousel-title">Les séries du moment</h2>
       <Slider {...settings}>
         {series.map((serie) => (
           <section key={serie.id}>
-            <div className="image-wrapper">
+            <article className="image-wrapper">
               <img
                 src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
                 alt={serie.title}
@@ -91,10 +91,10 @@ export default function SeriesList() {
                 </button>
                 <span className="like-count">{serie.likes}</span>
               </span>
-            </div>
+            </article>
           </section>
         ))}
       </Slider>
-    </div>
+    </section>
   );
 }

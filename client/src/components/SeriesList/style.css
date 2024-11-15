@@ -3,11 +3,21 @@ body {
   flex-direction: column;
 }
 
+body {
+  background: linear-gradient(
+    0deg,
+    rgba(2, 0, 36, 0.98) 0%,
+    rgba(255, 0, 56, 0.91) 44%,
+    rgba(2, 0, 36, 1) 100%
+  );
+}
+
 .carousel-title {
   text-align: center;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+  color: rgb(214, 221, 221)
 }
 
 .carousel-wrapper {
@@ -53,10 +63,10 @@ body {
 
 .slider-container .overview-text {
   position: absolute;
-  top: 0;
+  top: -16px;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,7 +86,7 @@ body {
 }
 
 .like-button-container {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -98,6 +108,10 @@ body {
 
 .like-button:hover {
   color: #ff4d4d;
+}
+
+.image-wrapper:hover .like-button-container {
+  display: flex; 
 }
 
 .like-count {

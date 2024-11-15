@@ -25,7 +25,7 @@ p {
   font-family: "Lato", sans-serif;
 }
 
-main {
+.movieContainer {
   padding-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

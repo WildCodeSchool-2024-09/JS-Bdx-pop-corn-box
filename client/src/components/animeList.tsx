@@ -45,7 +45,7 @@ export default function AnimeList() {
 
   return (
     <>
-      <section>
+      <section className="animeContainer">
         <h1>Animé page {page}</h1>
         <ul className="anime-grid">
           {cineList.map((anime) => (

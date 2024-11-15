@@ -59,7 +59,7 @@ export default function MoviesList() {
         cineList={cineList}
         setFilteredList={setFilteredList}
       />
-      <main>
+      <main className="movieContainer">
         {filteredList.map((movie: CineListProps) => (
           <section key={movie.id} className="movieList">
             <article className="movie-content">

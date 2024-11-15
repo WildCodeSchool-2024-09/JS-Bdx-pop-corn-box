@@ -1,9 +1,9 @@
-section {
+.animeContainer {
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
 }
-img {
+.animePicture {
   width: 23rem;
 }
 
@@ -12,7 +12,7 @@ h1 {
   margin-bottom: 16px;
 }
 
-ul.anime-grid {
+.anime-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
@@ -21,6 +21,6 @@ ul.anime-grid {
   justify-items: center;
 }
 
-li.anime-card {
+.anime-card {
   max-width: 23rem;
 }

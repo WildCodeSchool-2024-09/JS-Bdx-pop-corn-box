@@ -8,8 +8,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 
-import SeriesList from "./components/SeriesList/SeriesList";
-
 import AnimeList from "./components/animeList";
 
 import MoviesList from "./components/MovieList/MovieList";
@@ -41,7 +39,6 @@ const router = createBrowserRouter(
 
         {
           path: "/Series",
-          element: <SeriesList />,
         },
       ],
     },

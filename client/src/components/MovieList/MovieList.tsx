@@ -62,19 +62,19 @@ export default function MoviesList() {
       <main className="movieContainer">
         {filteredList.map((movie: CineListProps) => (
           <section key={movie.id} className="movieList">
-            <article className="movie-content">
+            <figure className="movie-content">
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
               />
-              <article className="movie-hover-text">
+              <figcaption className="movie-hover-text">
                 <h2>{movie.title}</h2>
                 <p>{movie.overview}</p>
                 <p>{movie.vote_average} ⭐</p>
                 <p>{movie.vote_count}❤️</p>
                 <p>Date de sortie: {movie.release_date}</p>
-              </article>
-            </article>
+              </figcaption>
+            </figure>
           </section>
         ))}
       </main>

@@ -13,7 +13,7 @@ export default function AnimeCard({ animeProps }: propsType) {
   return (
     <article>
       <figure className="figureAnime">
-        <figcaption>
+        <figcaption className="figcaptionAnime">
           <h1 key={animeProps.id}>{animeProps.name}</h1>
           <p>{animeProps.overview}</p>
         </figcaption>

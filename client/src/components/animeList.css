@@ -1,6 +1,7 @@
 .animeContainer {
   margin: auto;
   text-align: center;
+  width: 80%;
 }
 .animePicture {
   width: 100%;

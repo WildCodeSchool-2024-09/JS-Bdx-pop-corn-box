@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AnimeCard from "./animeCard";
 import "./animeList.css";
+import SearchBar from "./SearchBar/searchBar";
 import Header from "./header";
 
 type Anime = {
@@ -12,6 +13,7 @@ type Anime = {
 
 export default function AnimeList() {
   const [cineList, setCineList] = useState<Anime[]>([]);
+
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
   useEffect(() => {
@@ -45,7 +47,6 @@ export default function AnimeList() {
 
   return (
     <>
-      <Header />
       <section>
         <h1>Animé page {page}</h1>
         <ul className="anime-grid">

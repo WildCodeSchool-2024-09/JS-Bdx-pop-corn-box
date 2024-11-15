@@ -9,10 +9,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import AnimeList from "./components/animeList";
 
+import MoviesList from "./components/MovieList/MovieList";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 import Accueil from "./components/accueil";
-import Movie from "./pages/Movie";
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
 
@@ -28,17 +28,13 @@ const router = createBrowserRouter(
       element: <App />,
       children: [
         {
-          path: "/",
-          element: <Accueil />,
+          path: "/Movies",
+          element: <MoviesList />,
         },
         {
-          path: "/Movies",
-          element: <Movie />,
+          path: "/animes",
+          element: <AnimeList />,
         },
-         {
-    path: "/animes",
-    element: <AnimeList />,
-  },
       ],
     },
   ], // Renders the App component for the home page

@@ -50,7 +50,7 @@ export default function SearchBar({
 
   return (
     <>
-      <header>
+      <section>
         <h1>Les Films</h1>
         <label htmlFor="searchBar">Recherche</label>
         <input
@@ -60,7 +60,7 @@ export default function SearchBar({
           placeholder="Que voulez vous regardez"
           onChange={handleSearchTerm}
         />
-      </header>
+      </section>
     </>
   );
 }

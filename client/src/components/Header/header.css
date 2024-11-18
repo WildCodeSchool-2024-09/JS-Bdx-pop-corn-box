@@ -24,9 +24,10 @@ a {
   font-family: "Sour Grummy", sans-serif;
   text-decoration: none;
   color: whitesmoke;
+  font-size: 1.2rem;
 }
 
 header img {
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 200px;
 }

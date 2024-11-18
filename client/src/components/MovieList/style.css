@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
 
-* {
-  text-align: center;
-}
-
 body {
   background: rgb(2, 0, 36);
   background: linear-gradient(
@@ -21,6 +17,7 @@ h3 {
   margin-bottom: 2rem;
   margin-top: 2rem;
   font-family: "Sour Gummy", sans-serif;
+  text-align: center;
 }
 
 p {
@@ -77,11 +74,19 @@ p {
 }
 
 .rechercher {
-  width: 20%;
+  width: 40%;
   height: 40px;
   margin-left: 10px;
   border-radius: 10px;
   border: 0px solid;
+  text-align: center;
+}
+
+.searchBarContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -97,7 +102,37 @@ button {
   font-size: 1rem;
 }
 
-button:hover {
+.button:hover {
   background-color: lightgray;
   transform: scale(1.1);
+}
+
+@media screen and (max-width: 1024px) {
+  .movie-hover-text {
+    font-size: 1rem;
+  }
+  .movie-hover-text h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movie-hover-text {
+    font-size: 0.7rem;
+  }
+  .movie-hover-text h2 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .movie-hover-text {
+    font-size: 0.5rem;
+  }
+  .movie-hover-text h2 {
+    font-size: 0.8rem;
+  }
+  .movieContainer {
+    width: 100%;
+  }
 }

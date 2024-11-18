@@ -46,14 +46,12 @@ export default function AnimeList() {
   return (
     <>
       <section className="animeContainer">
-        <h1>Animé page {page}</h1>
-        <ul className="anime-grid">
+        <h2>Animé page {page}</h2>
+        <article className="anime-grid">
           {cineList.map((anime) => (
-            <li key={anime.id} className="anime-card">
-              <AnimeCard animeProps={anime} />
-            </li>
+            <AnimeCard key={anime.id} animeProps={anime} />
           ))}
-        </ul>
+        </article>
 
         {page > 1 ? (
           <button type="button" onClick={handleClickPrez}>

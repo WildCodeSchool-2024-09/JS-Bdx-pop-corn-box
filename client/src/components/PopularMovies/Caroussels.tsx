@@ -10,7 +10,7 @@ interface MoviesProps {
   MoviePath: string;
 }
 
-export default function CenterMode({ movies, MoviePath }: MoviesProps) {
+export default function MoviesCaroussel({ movies, MoviePath }: MoviesProps) {
   const settings = {
     className: "center",
     centerMode: false,

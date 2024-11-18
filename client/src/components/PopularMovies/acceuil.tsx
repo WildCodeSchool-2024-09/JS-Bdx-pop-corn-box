@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CenterMode from "./TestCarrousel";
+import MoviesCaroussel from "./Caroussels";
 
 function PopularMovies() {
   const [movies, setMovies] = useState([]);
@@ -27,7 +27,7 @@ function PopularMovies() {
 
   return (
     <figure>
-      <CenterMode movies={movies} MoviePath={MoviePath} />
+      <MoviesCaroussel movies={movies} MoviePath={MoviePath} />
     </figure>
   );
 }

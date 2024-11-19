@@ -8,11 +8,13 @@
 
 header {
   height: 18vh;
-  /*background-color: #1b263b;*/
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+header .svg-inline--fa {
+  display: none;
 }
 
 nav {
@@ -29,4 +31,52 @@ a {
 header img {
   width: 130px;
   height: 130px;
+}
+.listHamburger {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  header .navHeader {
+    display: none;
+  }
+  header svg {
+    color: aliceblue;
+  }
+  header .svg-inline--fa {
+    display: flex;
+    height: 30px;
+  }
+  .listHamburger {
+    display: none;
+    color: aliceblue;
+    position: absolute;
+    top: 69px;
+    right: 0px;
+    padding: 1rem;
+    z-index: 999;
+    background: linear-gradient(0deg, rgb(41 3 17 / 80%) 0%, #000000a3);
+    border-radius: 1rem;
+    box-shadow: -4px 4px 15px rgba(0, 0, 0, 0.753);
+    width: 26 vw;
+  }
+
+  .listHamburger.active {
+    display: flex;
+  }
+  header {
+    position: relative;
+  }
+  .listHamburger {
+    flex-direction: column;
+    padding: 25px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  header input {
+    width: 115px;
+  }
+  .svg-inline--fa {
+    margin: 0 1rem 0 2rem;
+  }
 }

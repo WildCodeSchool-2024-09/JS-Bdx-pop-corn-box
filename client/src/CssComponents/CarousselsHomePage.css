@@ -105,3 +105,9 @@ body {
 .slick-prev:before {
   color: white;
 }
+@media screen and (max-width: 480px) {
+  * {
+    box-sizing: border-box;
+    margin: revert;
+  }
+}

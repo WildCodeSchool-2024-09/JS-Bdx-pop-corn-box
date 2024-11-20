@@ -36,7 +36,7 @@ export default function AnimeList() {
     const fetchAllPages = () => {
       fetch(
         `https://api.themoviedb.org/3/search/tv?query=animation&include_adult=false&language=fr-FR&page=${currentPage}`,
-        options
+        options,
       )
         .then((response) => response.json())
         .then((data) => {
@@ -50,7 +50,9 @@ export default function AnimeList() {
             setIsLoading(false);
           }
         })
-        .catch((error) => console.error("Erreur lors de la récupération :", error));
+        .catch((error) =>
+          console.error("Erreur lors de la récupération :", error),
+        );
     };
 
     fetchAllPages();
@@ -61,7 +63,7 @@ export default function AnimeList() {
       <SearchBar
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
-        cineList={animeList} 
+        cineList={animeList}
         setFilteredList={setFilteredList}
       />
       {isLoading ? (

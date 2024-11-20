@@ -36,7 +36,7 @@ export default function SeriesList() {
     const fetchAllPages = () => {
       fetch(
         `https://api.themoviedb.org/3/tv/top_rated?language=fr-FR&page=${currentPage}`,
-        options
+        options,
       )
         .then((response) => response.json())
         .then((data) => {
@@ -50,7 +50,9 @@ export default function SeriesList() {
             setIsLoading(false);
           }
         })
-        .catch((error) => console.error("Erreur lors de la récupération :", error));
+        .catch((error) =>
+          console.error("Erreur lors de la récupération :", error),
+        );
     };
 
     fetchAllPages();

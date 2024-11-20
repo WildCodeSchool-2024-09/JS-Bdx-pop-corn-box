@@ -7,9 +7,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 // Import the main app component
 import App from "./App";
-
 import AnimeList from "./components/AnimsList/animeList";
-
+import About from "./components/About/About";
 import MoviesList from "./components/MovieList/MovieList";
 import SeriesList from "./components/SeriesList/SeriesList";
 // Import additional components for new routes
@@ -41,6 +40,11 @@ const router = createBrowserRouter(
         {
           path: "/Series",
           element: <SeriesList />,
+        },
+
+        {
+          path: "/About",
+          element: <About />,
         },
       ],
     },

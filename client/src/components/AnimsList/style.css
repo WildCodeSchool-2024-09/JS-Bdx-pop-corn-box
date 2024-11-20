@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  text-align: center;
+}
+
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 0, 36, 0.9780287114845938) 0%,
+    rgba(255, 0, 56, 0.908000700280112) 44%,
+    rgba(2, 0, 36, 1) 100%
+  );
+  color: #f2f5ea;
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  font-family: "Sour Gummy", sans-serif;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+}
+
+.animeContainer {
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-self: center;
+  margin-left: 2rem;
+}
+
+.animeList {
+  width: 90%;
+  overflow: hidden;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+.animeList img {
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  transition: filter 0.5s;
+  border-radius: 15px;
+}
+
+.animeList:hover img {
+  filter: brightness(30%);
+}
+
+.anime-content {
+  position: relative;
+}
+
+.anime-hover-text {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.animeList:hover .anime-hover-text {
+  opacity: 1;
+  z-index: 2;
+  transition: 1s;
+}
+
+.rechercher {
+  width: 20%;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: 0px solid;
+}
+
+button {
+  cursor: pointer;
+  width: 20%;
+  height: 50px;
+  margin: 30px;
+  border-radius: 15px;
+  border: 0px;
+  color: black;
+  background-color: whitesmoke;
+  transition: 0.5s;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: lightgray;
+  transform: scale(1.1);
+}

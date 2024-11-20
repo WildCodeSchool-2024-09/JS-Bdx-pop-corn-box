@@ -7,8 +7,6 @@
 }
 
 header {
-  height: 18vh;
-  /*background-color: #1b263b;*/
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,4 +27,11 @@ a {
 header img {
   width: 130px;
   height: 130px;
+}
+
+@media screen and (max-width: 768px) {
+  header img {
+    width: 75px;
+    height: 75px;
+  }
 }

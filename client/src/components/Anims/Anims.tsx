@@ -18,6 +18,15 @@ export default function AnimsMostViewed({ anims, AnimPath }: AnimsProps) {
     centerPadding: "60px",
     slidesToShow: 3,
     speed: 500,
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
   };
 
   return (

@@ -25,7 +25,7 @@ export default function AnimeList() {
     };
 
     fetch(
-      `https://api.themoviedb.org/3/search/tv?query=animation&include_adult=false&language=en-US&page=${page}`,
+      `https://api.themoviedb.org/3/search/tv?query=animation&include_adult=false&language=fr-FR&page=${page}`,
       options,
     )
       .then((res) => res.json())

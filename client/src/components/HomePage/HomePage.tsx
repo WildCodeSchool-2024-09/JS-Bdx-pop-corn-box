@@ -13,8 +13,11 @@ export default function HomePage() {
     }
     return (
       <>
+        <h2>Films tendances du moment</h2>
         <PopularMovies />
+        <h2>Series populaire</h2>
         <PopularSeries />
+        <h2>Animes populaire</h2>
         <PopularAnims />
       </>
     );

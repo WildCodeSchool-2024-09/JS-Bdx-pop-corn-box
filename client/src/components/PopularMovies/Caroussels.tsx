@@ -6,6 +6,9 @@ interface MoviesProps {
     title: string;
     poster_path: string;
     overview: string;
+    vote_average: string;
+    vote_count: string;
+    release_date: string;
   }[];
   MoviePath: string;
 }
@@ -15,25 +18,49 @@ export default function MoviesCaroussel({ movies, MoviePath }: MoviesProps) {
     className: "center",
     centerMode: false,
     infinite: true,
-    autoplay: true,
+
     autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     speed: 500,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          autoplay: true,
+          autoplaySpeed: 3000,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
     <section className="slider-container">
       <Slider {...settings}>
         {movies.map((movie) => (
-          <article className="container1" key={movie.id}>
+          <figure className="container1" key={movie.id}>
             <img
               className="movie-img"
               src={`${MoviePath}${movie.poster_path}`}
               alt={movie.title}
             />
-            <p className="overview">{movie.overview}</p>
-          </article>
+            <figcaption className="overview">
+              <p>{movie.overview}</p>
+              <p>{movie.vote_average} ⭐</p>
+              <p>{movie.vote_count}❤️</p>
+              <p>Date de sortie: {movie.release_date}</p>
+            </figcaption>
+          </figure>
         ))}
       </Slider>
     </section>

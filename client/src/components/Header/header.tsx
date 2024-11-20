@@ -14,8 +14,7 @@ export default function Header() {
           <Link to="/series">Series</Link>
           <Link to="/animes">Animes</Link>
         </nav>
-
-        <input type="text" placeholder="Rechercher..." />
+        <input className="searchBar" type="text" placeholder="Rechercher..." />
         <Link to="/WatchList">WatchList</Link>
       </header>
       <Outlet />

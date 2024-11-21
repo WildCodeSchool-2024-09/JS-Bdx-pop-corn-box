@@ -26,9 +26,11 @@ a {
   font-family: "Sour Grummy", sans-serif;
   text-decoration: none;
   color: whitesmoke;
+  font-size: 1.2rem;
 }
 
 header img {
+
   width: 70px;
   height: 70px;
 }
@@ -79,4 +81,5 @@ header img {
   .svg-inline--fa {
     margin: 0 1rem 0 2rem;
   }
+
 }

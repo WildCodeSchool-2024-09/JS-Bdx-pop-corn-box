@@ -53,6 +53,7 @@ export default function MoviesList() {
 
   return (
     <>
+      <h1>Les films</h1>
       <SearchBar
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
@@ -78,6 +79,7 @@ export default function MoviesList() {
           </section>
         ))}
       </main>
+
       <button onClick={handleNextPage} type="button">
         Suivant {pages}/319
       </button>

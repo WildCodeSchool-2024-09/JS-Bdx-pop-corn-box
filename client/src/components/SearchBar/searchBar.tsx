@@ -50,8 +50,7 @@ export default function SearchBar({
 
   return (
     <>
-      <section>
-        <h1>Les Films</h1>
+      <section className="searchBarContainer">
         <label htmlFor="searchBar">Recherche</label>
         <input
           type="search"

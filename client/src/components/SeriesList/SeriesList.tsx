@@ -1,100 +1,94 @@
 import { useEffect, useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import "./style.css";
 
-type Serie = {
+import SearchBar from "../SearchBar/searchBar";
+
+export type SeriesListProps = {
   id: number;
   title: string;
-  overview?: string;
-  likeButton: number;
+  name: string;
   poster_path: string;
+  overview: string;
+  vote_average: string;
   vote_count: number;
-  vote_average: number;
-  likes: number;
-  isLiked: boolean;
+  release_date: string;
 };
 
 export default function SeriesList() {
-  const [series, setSeries] = useState<Serie[]>([]);
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+  const [seriesList, setSeriesList] = useState<SeriesListProps[]>([]);
+  const [filteredList, setFilteredList] = useState<SeriesListProps[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhOTYxZjNkMjhmYjA0ODQwY2NiNDlkMmQzYjhlZTU1YiIsIm5iZiI6MTczMDczNzc3NS4zOTM1ODY2LCJzdWIiOiI2NzI4ZWFiNzM5NDBjMTIwMmZmN2Q2ODEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3hTxfLqEU-mn3vqvTs8JvvATPzSiqY67QyMwfhgbGy8",
+    },
   };
 
   useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NjdkNmE4MTkwNmM3YjNlMzhhOWM3MmZmYWEzOTM1NyIsIm5iZiI6MTczMTQwNTc5NS40MTI0NDMyLCJzdWIiOiI2NzI4ZjE0NDc2MTk3OWYwMDVlMmQ5ZTAiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.KQOdA6zxIaqYoWfgwRlxImq31ln3Y_xwscsqqkz93wA",
-      },
-    };
-    fetch(
-      "https://api.themoviedb.org/3/tv/top_rated?language=fr-US&page=1",
-      options,
-    )
-      .then((res) => res.json())
-      .then((data) =>
-        setSeries(
-          data.results.map((serie: Serie) => ({
-            ...serie,
-            vote_count: serie.vote_count,
-            vote_average: serie.vote_average,
-          })),
-        ),
+    let allResults: SeriesListProps[] = [];
+    let currentPage = 1;
+
+    const fetchAllPages = () => {
+      fetch(
+        `https://api.themoviedb.org/3/tv/top_rated?language=fr-FR&page=${currentPage}`,
+        options,
       )
-      .catch((err) => console.error(err));
+        .then((response) => response.json())
+        .then((data) => {
+          allResults = [...allResults, ...data.results];
+          if (currentPage < data.total_pages) {
+            currentPage++;
+            fetchAllPages();
+          } else {
+            setSeriesList(allResults);
+            setFilteredList(allResults);
+            setIsLoading(false);
+          }
+        })
+        .catch((error) =>
+          console.error("Erreur lors de la récupération :", error),
+        );
+    };
+
+    fetchAllPages();
   }, []);
 
-  const handleLike = (id: number) => {
-    setSeries((prevSeries) =>
-      prevSeries.map((serie) =>
-        serie.id === id
-          ? {
-              ...serie,
-              likes: serie.isLiked ? serie.likes + 1 : serie.likes - 1,
-              isLiked: !serie.isLiked,
-            }
-          : serie,
-      ),
-    );
-  };
-
   return (
-    <section className="slider-container">
-      <h2 className="carousel-title">Les séries du moment</h2>
-      <Slider {...settings}>
-        {series.map((serie) => (
-          <section key={serie.id}>
-            <article className="image-wrapper">
-              <img
-                src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
-                alt={serie.title}
-              />
-              {serie.overview && (
-                <p className="overview-text">{serie.overview}</p>
-              )}
-              <span className="like-button-container">
-                <button
-                  type="button"
-                  className="like-button"
-                  onClick={() => handleLike(serie.id)}
-                  aria-label="Like"
-                >
-                  {serie.isLiked ? "💔" : "❤️"}
-                </button>
-                <span className="like-count">{serie.likes}</span>
-              </span>
-            </article>
-          </section>
-        ))}
-      </Slider>
-    </section>
+    <>
+      <SearchBar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        cineList={seriesList}
+        setFilteredList={setFilteredList}
+      />
+      {isLoading ? (
+        <p>Chargement...</p>
+      ) : (
+        <main className="seriesContainer">
+          {filteredList.map((series: SeriesListProps) => (
+            <section key={series.id} className="seriesList">
+              <figure className="series-content">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${series.poster_path}`}
+                  alt={series.title || series.name}
+                />
+                <figcaption className="series-hover-text">
+                  <h2>{series.title || series.name}</h2>
+                  <p>{series.overview}</p>
+                  <p>{series.vote_average} ⭐</p>
+                  <p>{series.vote_count} ❤️</p>
+                  <p>Date de sortie: {series.release_date}</p>
+                </figcaption>
+              </figure>
+            </section>
+          ))}
+        </main>
+      )}
+    </>
   );
 }

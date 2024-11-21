@@ -17,6 +17,16 @@ export default function Series({ series, SeriePath }: SeriesProps) {
     centerPadding: "60px",
     slidesToShow: 3,
     speed: 500,
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          autoplay: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (

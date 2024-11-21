@@ -27,7 +27,7 @@ p {
   font-family: "Lato", sans-serif;
 }
 
-.seriesContainer {
+.animeContainer {
   padding-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -35,14 +35,14 @@ p {
   margin-left: 2rem;
 }
 
-.seriesList {
+.animeList {
   width: 90%;
   overflow: hidden;
   z-index: 1;
   margin-bottom: 20px;
 }
 
-.seriesList img {
+.animeList img {
   width: 100%;
   z-index: 1;
   position: relative;
@@ -50,15 +50,15 @@ p {
   border-radius: 15px;
 }
 
-.seriesList:hover img {
+.animeList:hover img {
   filter: brightness(30%);
 }
 
-.series-content {
+.anime-content {
   position: relative;
 }
 
-.series-hover-text {
+.anime-hover-text {
   position: absolute;
   top: 0;
   width: 100%;
@@ -70,7 +70,7 @@ p {
   align-items: center;
 }
 
-.seriesList:hover .series-hover-text {
+.animeList:hover .anime-hover-text {
   opacity: 1;
   z-index: 2;
   transition: 1s;

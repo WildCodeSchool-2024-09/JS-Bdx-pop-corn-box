@@ -1,69 +1,96 @@
 import { useEffect, useState } from "react";
-import AnimeCard from "./animeCard";
-import "./animeList.css";
+import "./style.css";
 
-type Anime = {
+import SearchBar from "../SearchBar/searchBar";
+
+export type AnimeListProps = {
   id: number;
+  title: string;
   name: string;
-  overview: string;
   poster_path: string;
+  overview: string;
+  vote_average: string;
+  vote_count: number;
+  release_date: string;
 };
 
 export default function AnimeList() {
-  const [cineList, setCineList] = useState<Anime[]>([]);
+  const [animeList, setAnimeList] = useState<AnimeListProps[]>([]);
+  const [filteredList, setFilteredList] = useState<AnimeListProps[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [page, setPage] = useState(1);
-  const [totalPage, setTotalPage] = useState(1);
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhOTYxZjNkMjhmYjA0ODQwY2NiNDlkMmQzYjhlZTU1YiIsIm5iZiI6MTczMDczNzc3NS4zOTM1ODY2LCJzdWIiOiI2NzI4ZWFiNzM5NDBjMTIwMmZmN2Q2ODEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3hTxfLqEU-mn3vqvTs8JvvATPzSiqY67QyMwfhgbGy8",
+    },
+  };
+
   useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5N2JiM2M0MjYxMmIxZWQzZGNmOWI1MGVjYTI4NTc0NSIsIm5iZiI6MTczMDk4MzA0NC43NjU1MTA4LCJzdWIiOiI2NzJiYmU2MGVjNWM2ZDUyOWZjNTVlM2MiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.9Q5ySfKNQUHO0E2pT_3cgO3_A0iH1uKL3haQjHkJfxg",
-      },
+    let allResults: AnimeListProps[] = [];
+    let currentPage = 1;
+
+    const fetchAllPages = () => {
+      fetch(
+        `https://api.themoviedb.org/3/search/tv?query=animation&include_adult=false&language=fr-FR&page=${currentPage}`,
+        options,
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          allResults = [...allResults, ...data.results];
+          if (currentPage < data.total_pages) {
+            currentPage++;
+            fetchAllPages();
+          } else {
+            setAnimeList(allResults);
+            setFilteredList(allResults);
+            setIsLoading(false);
+          }
+        })
+        .catch((error) =>
+          console.error("Erreur lors de la récupération :", error),
+        );
     };
 
-    fetch(
-      `https://api.themoviedb.org/3/search/tv?query=animation&include_adult=false&language=fr-FR&page=${page}`,
-      options,
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setCineList(data.results);
-        setTotalPage(data.total_pages);
-      })
-      .catch((err) => console.error(err));
-  }, [page]);
 
-  const handleClick = () => {
-    setPage(page + 1);
-  };
-  const handleClickPrez = () => {
-    setPage(page - 1);
-  };
+    fetchAllPages();
+  }, []);
+
 
   return (
     <>
-      <section className="animeContainer">
-        <h2>Animé page {page}</h2>
-        <article className="anime-grid">
-          {cineList.map((anime) => (
-            <AnimeCard key={anime.id} animeProps={anime} />
+      <SearchBar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        cineList={animeList}
+        setFilteredList={setFilteredList}
+      />
+      {isLoading ? (
+        <p>Chargement...</p>
+      ) : (
+        <main className="animeContainer">
+          {filteredList.map((anime: AnimeListProps) => (
+            <section key={anime.id} className="animeList">
+              <figure className="anime-content">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${anime.poster_path}`}
+                  alt={anime.title || anime.name}
+                />
+                <figcaption className="anime-hover-text">
+                  <h2>{anime.title || anime.name}</h2>
+                  <p>{anime.overview}</p>
+                  <p>{anime.vote_average} ⭐</p>
+                  <p>{anime.vote_count} ❤️</p>
+                  <p>Date de sortie: {anime.release_date}</p>
+                </figcaption>
+              </figure>
+            </section>
           ))}
-        </article>
-
-        {page > 1 ? (
-          <button type="button" onClick={handleClickPrez}>
-            précedent
-          </button>
-        ) : null}
-        {page === totalPage ? null : (
-          <button type="button" onClick={handleClick}>
-            suivant
-          </button>
-        )}
-      </section>
+        </main>
+      )}
     </>
   );
 }

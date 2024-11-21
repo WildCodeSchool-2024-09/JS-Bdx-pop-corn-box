@@ -23,6 +23,7 @@ export default function Series({ series, SeriePath }: SeriesProps) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
+
         },
       },
     ],

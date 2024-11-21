@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <>
-      <header>
+      <header id="top">
         <Link to="/">
           <img src="./public/pop-corn_Box.png" alt="logo Pop Corn Box" />
         </Link>

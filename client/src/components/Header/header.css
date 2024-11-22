@@ -39,6 +39,7 @@ a {
 a:hover {
   letter-spacing: 0.4rem;
   color: blue;
+
 }
 
 header img {
@@ -86,4 +87,3 @@ header img {
     pointer-events: auto;
     font-size: 2rem;
   }
-}

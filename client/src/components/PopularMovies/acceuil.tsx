@@ -15,7 +15,7 @@ function PopularMovies() {
 
   useEffect(() => {
     fetch(
-      "https://api.themoviedb.org/3/movie/popular?language=en-fr&page=1",
+      "https://api.themoviedb.org/3/movie/popular?language=fr-fr&page=1",
       options,
     )
       .then((res) => res.json())

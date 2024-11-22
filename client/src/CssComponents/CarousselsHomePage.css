@@ -1,6 +1,10 @@
+import Series from "../components/PopularSeries/PopularSeries";
 @import url("https://fonts.googleapis.com/css2?family=Jersey+10&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Jersey+10&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
 
+* {
+  box-sizing: border-box;
+}
 body {
   background: rgb(2, 0, 36);
   background: linear-gradient(
@@ -10,82 +14,95 @@ body {
     rgba(2, 0, 36, 1) 100%
   );
 }
+.home-movieList {
+  overflow: hidden;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+.home-movieList img {
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  transition: filter 0.5s;
+  border-radius: 15px;
+}
 
-* {
-  box-sizing: border-box;
+.home-movieList:hover img {
+  filter: brightness(30%);
 }
-.title {
-  font-family: "Sour Gummy", sans-serif;
-  color: whitesmoke;
-  font-size: 25px;
-  margin-top: 2rem;
+
+.movie-content {
+  position: relative;
 }
-.slick-track {
+
+.hover-text {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 70%;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-movieList:hover .hover-text {
+  opacity: 1;
+  z-index: 2;
+  transition: 0.3s;
+}
+
+.slick-slide {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .slick-slide .movie-img {
-  width: 50%;
-  height: 70%;
-  display: inline;
+  width: 70%;
+  transform: none;
+  justify-self: center;
+}
+
+.title {
+  font-family: "Sour Gummy", sans-serif;
+  color: whitesmoke;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.movie-container {
+  border-radius: 15px;
+}
+
+.slider-container {
+  width: 60%;
+  margin: auto;
 }
 
 .slick-slide img {
+  width: 100%;
+  height: auto;
   border-radius: 15px;
-}
-.slick-next {
-  right: -40px;
-}
-.container1 {
-  position: relative;
-  overflow: hidden;
+  transition: 0.5s ease-in-out;
 }
 
-.movie-img {
-  transition: opacity 0.3s ease;
-}
-.overview {
-  align-items: center;
-}
-figcaption.overview {
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  border-radius: 15px;
-  top: 0;
-  left: 25%;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.9s ease;
-  padding: 10px;
-}
-.container1:hover .movie-img {
-  opacity: 0.3;
-}
-
-.container1:hover .overview {
-  opacity: 1;
-}
 .slick-prev,
 .slick-next {
   border-radius: 50%;
-  width: 0px;
   z-index: 1;
   transition: opacity 0.3s ease;
   transform: translate(none);
   -webkit-transform: none;
 }
+.slick-next:before {
+  margin-left: 1rem;
+}
 
 .slick-prev {
-  left: -43px;
+  left: -2.5rem;
 }
 
 .slick-next:before {
@@ -94,26 +111,26 @@ figcaption.overview {
 .slick-prev:before {
   color: white;
 }
-
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 425px) {
   * {
     box-sizing: border-box;
-    margin-right: 4px;
-    margin: revert;
   }
-
-  .slick-slide .movie-img {
-    justify-self: center;
+  .home-movieList:hover img {
+    filter: brightness(1);
   }
-  figcaption.overview {
+  .slick-slide .home-movie-img {
+    width: 100%;
+  }
+  .hover-text {
     display: none;
   }
-  .slick-slide .movie-img {
-    width: 70%;
+  .home-movieList {
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: 1rem;
   }
-  .container1:hover .movie-img {
-    opacity: 1;
-
+  .slider-container .movie-img {
+    width: 100%;
+    margin: auto;
   }
 }

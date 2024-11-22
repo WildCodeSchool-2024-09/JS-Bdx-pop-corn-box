@@ -17,7 +17,7 @@ h3 {
   margin-bottom: 2rem;
   margin-top: 2rem;
   font-family: "Sour Gummy", sans-serif;
-  text-align: center;
+  justify-self: center;
 }
 
 p {

@@ -38,7 +38,6 @@ export default function Header() {
           WatchList
         </Link>
         <FontAwesomeIcon icon={faBars} onClick={handleClick} />
-
       </header>
       <Outlet />
     </>

@@ -55,10 +55,8 @@ export default function AnimeList() {
         );
     };
 
-
     fetchAllPages();
   }, []);
-
 
   return (
     <>

@@ -30,7 +30,6 @@ a {
 }
 
 header img {
-
   width: 70px;
   height: 70px;
 }
@@ -81,7 +80,6 @@ header img {
   .svg-inline--fa {
     margin: 0 1rem 0 2rem;
   }
-
 }
 
 @media screen and (max-width: 768px) {

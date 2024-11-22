@@ -22,11 +22,9 @@ export default function AnimsMostViewed({ anims, AnimPath }: AnimsProps) {
       {
         breakpoint: 480,
         settings: {
-
           autoplay: false,
           slidesToShow: 1,
           slidesToScroll: 1,
-
         },
       },
     ],

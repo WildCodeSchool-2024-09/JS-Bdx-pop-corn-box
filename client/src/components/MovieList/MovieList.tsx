@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./style.css";
-
 import SearchBar from "../SearchBar/searchBar";
 
 export type CineListProps = {
@@ -50,16 +49,15 @@ export default function MoviesList() {
   const handlePrevPage = () => {
     setPages(() => (pages > 1 ? pages - 1 : pages));
   };
-
   return (
     <>
-      <h1>Les films</h1>
       <SearchBar
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         cineList={cineList}
         setFilteredList={setFilteredList}
       />
+      <h1>Les films</h1>
       <main className="movieContainer">
         {filteredList.map((movie: CineListProps) => (
           <section key={movie.id} className="movieList">

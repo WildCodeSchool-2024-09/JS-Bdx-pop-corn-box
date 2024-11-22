@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./style.css";
+import "../MovieList/style.css";
 
 import SearchBar from "../SearchBar/searchBar";
 
@@ -69,15 +69,15 @@ export default function SeriesList() {
       {isLoading ? (
         <p>Chargement...</p>
       ) : (
-        <main className="seriesContainer">
+        <main className="movieContainer">
           {filteredList.map((series: SeriesListProps) => (
-            <section key={series.id} className="seriesList">
-              <figure className="series-content">
+            <section key={series.id} className="movieList">
+              <figure className="movie-content">
                 <img
                   src={`https://image.tmdb.org/t/p/w500${series.poster_path}`}
                   alt={series.title || series.name}
                 />
-                <figcaption className="series-hover-text">
+                <figcaption className="movie-hover-text">
                   <h2>{series.title || series.name}</h2>
                   <p>{series.overview}</p>
                   <p>{series.vote_average} ⭐</p>

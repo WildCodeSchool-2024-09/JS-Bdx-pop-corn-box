@@ -26,9 +26,9 @@ function PopularMovies() {
   const MoviePath = "https://image.tmdb.org/t/p/w500/";
 
   return (
-    <figure>
+    <>
       <MoviesCaroussel movies={movies} MoviePath={MoviePath} />
-    </figure>
+    </>
   );
 }
 

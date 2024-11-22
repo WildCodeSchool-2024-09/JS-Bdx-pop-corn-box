@@ -23,8 +23,8 @@ export default function PopularSeries() {
   }, []);
   const SeriePath = "https://image.tmdb.org/t/p/w500/";
   return (
-    <figure>
+    <>
       <Series series={series} SeriePath={SeriePath} />
-    </figure>
+    </>
   );
 }

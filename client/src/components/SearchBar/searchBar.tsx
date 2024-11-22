@@ -50,16 +50,16 @@ export default function SearchBar({
 
   return (
     <>
-      <section className="searchBarContainer">
+      <header className="navHeader searchBarContainer">
         <label htmlFor="searchBar">Recherche</label>
         <input
           type="search"
           name="searchBar"
-          className="rechercher"
+          className="search"
           placeholder="Que voulez vous regardez"
           onChange={handleSearchTerm}
         />
-      </section>
+      </header>
     </>
   );
 }

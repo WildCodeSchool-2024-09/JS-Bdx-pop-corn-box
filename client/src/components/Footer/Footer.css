@@ -1,0 +1,7 @@
+footer {
+  align-items: center;
+}
+.footerNav {
+  display: flex;
+  justify-content: center;
+}

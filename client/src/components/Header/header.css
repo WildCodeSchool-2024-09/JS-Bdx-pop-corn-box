@@ -11,7 +11,7 @@
   z-index: 100;
   display: flex;
   justify-content: space-between;
-  background-color: rgba(58, 63, 134, 0.514);
+  background-color: #0d13219d;
 }
 
 header .svg-inline--fa {

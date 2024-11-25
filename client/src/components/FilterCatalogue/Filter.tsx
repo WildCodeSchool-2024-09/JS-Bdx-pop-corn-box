@@ -11,8 +11,7 @@ export default function FilterCatalogue() {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization:
-          `Bearer ${import.meta.env.VITE_API_KEY}`,
+        Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
       },
     };
     fetch("https://api.themoviedb.org/3/genre/movie/list?language=fr", options)
@@ -30,4 +29,12 @@ export default function FilterCatalogue() {
       ))}
     </select>
   );
+
 }
+// - crée un menu déroulant qui affiche les catagories. done
+// - au clic sur la categorie ex(fantastique), recuperer les Datas de la categorie(film serie anime).
+// - afficher seulement les films series animes fantastique.
+
+// au clic recuperer le fetch de la page ex (film).
+// dans se fetch prendre l'id correspondant a la categorie cliqué .
+// afficher les film avec l'id correspondant 

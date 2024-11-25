@@ -57,7 +57,7 @@ p {
   position: absolute;
   top: 0;
   width: 100%;
-  color:var(--primary-color);
+  color: var(--primary-color);
   font-size: var(--font-size);
   font-weight: bold;
   display: flex;

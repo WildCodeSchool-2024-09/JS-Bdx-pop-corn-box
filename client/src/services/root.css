@@ -1,19 +1,16 @@
-:root{
-    @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
-    --primary-color: #f2f5ea;
-    --secondary-color: black;
-    --background-color: linear-gradient(
-        0deg,
-        rgba(2, 0, 36, 0.9780287114845938) 0%,
-        rgba(255, 0, 56, 0.908000700280112) 44%,
-        rgba(2, 0, 36, 1) 100%
-      );
-    --background-color-second: rgb(2, 0, 36); 
-    --font-familly-title: "Sour Gummy", sans-serif;
-    --font-familly: "Lato", sans-serif;
-    --font-size-title: 2rem;
-    --font-size: 1.2rem;
-
-
-
+:root {
+  @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+  --primary-color: #f2f5ea;
+  --secondary-color: black;
+  --background-color: linear-gradient(
+    0deg,
+    rgba(2, 0, 36, 0.9780287114845938) 0%,
+    rgba(255, 0, 56, 0.908000700280112) 44%,
+    rgba(2, 0, 36, 1) 100%
+  );
+  --background-color-second: rgb(2, 0, 36);
+  --font-familly-title: "Sour Gummy", sans-serif;
+  --font-familly: "Lato", sans-serif;
+  --font-size-title: 2rem;
+  --font-size: 1.2rem;
 }

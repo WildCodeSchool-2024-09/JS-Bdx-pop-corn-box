@@ -7,7 +7,7 @@
 body {
   background: var(--background-color-second);
   background: var(--background-color);
-  color:var(--primary-color);
+  color: var(--primary-color);
 }
 
 h1,

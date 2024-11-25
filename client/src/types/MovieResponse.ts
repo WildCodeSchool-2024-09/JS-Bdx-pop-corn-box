@@ -1,3 +1,5 @@
+import type { CineListProps } from "./CineListProps";
+
 export interface MovieResponse {
   page: number;
   results: {
@@ -9,6 +11,7 @@ export interface MovieResponse {
     vote_average: string;
     vote_count: number;
     release_date: string;
+    results: CineListProps[];
   }[];
   total_pages: number;
   total_results: number;

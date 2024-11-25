@@ -29,7 +29,6 @@ export default function FilterCatalogue() {
       ))}
     </select>
   );
-
 }
 // - crée un menu déroulant qui affiche les catagories. done
 // - au clic sur la categorie ex(fantastique), recuperer les Datas de la categorie(film serie anime).
@@ -37,4 +36,4 @@ export default function FilterCatalogue() {
 
 // au clic recuperer le fetch de la page ex (film).
 // dans se fetch prendre l'id correspondant a la categorie cliqué .
-// afficher les film avec l'id correspondant 
+// afficher les film avec l'id correspondant

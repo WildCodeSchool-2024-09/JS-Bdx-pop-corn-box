@@ -25,9 +25,9 @@ function PopularAnims() {
   const AnimPath = "https://image.tmdb.org/t/p/w500/";
 
   return (
-    <figure>
+    <>
       <AnimsMostViewed anims={anims} AnimPath={AnimPath} />
-    </figure>
+    </>
   );
 }
 export default PopularAnims;

@@ -21,9 +21,8 @@ export default function Series({ series, SeriePath }: SeriesProps) {
       {
         breakpoint: 480,
         settings: {
-          autoplay: false,
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
     ],

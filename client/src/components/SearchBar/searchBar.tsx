@@ -1,6 +1,6 @@
 import Fuse from "fuse.js";
 import { useEffect, useMemo } from "react";
-import type { CineListProps } from "../MovieList/MovieList";
+import type { CineListProps } from "../../types/CineListProps";
 type SearchBarProps = {
   searchTerm: string;
   setSearchTerm: (value: string) => void;
@@ -50,16 +50,16 @@ export default function SearchBar({
 
   return (
     <>
-      <section className="searchBarContainer">
+      <header className="navHeader searchBarContainer">
         <label htmlFor="searchBar">Recherche</label>
         <input
           type="search"
           name="searchBar"
-          className="rechercher"
+          className="search"
           placeholder="Que voulez vous regardez"
           onChange={handleSearchTerm}
         />
-      </section>
+      </header>
     </>
   );
 }

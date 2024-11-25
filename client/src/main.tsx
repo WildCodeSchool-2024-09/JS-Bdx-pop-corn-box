@@ -8,10 +8,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import About from "./components/About/About";
-import AnimeList from "./components/AnimsList/animeList";
-import MoviesList from "./components/MovieList/MovieList";
-import SeriesList from "./components/SeriesList/SeriesList";
-import WatchList from "./components/WatchList/WatchList";
+import AnimeListDisplay from "./components/AnimsList/animeListDisplay";
+import MovieListDisplay from "./components/MovieList/MovieListDisplay";
+import SeriesListDisplay from "./components/SeriesList/SeriesListDisplay";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
@@ -31,21 +30,16 @@ const router = createBrowserRouter(
       children: [
         {
           path: "/Movies",
-          element: <MoviesList />,
+          element: <MovieListDisplay />,
         },
         {
           path: "/animes",
-          element: <AnimeList />,
+          element: <AnimeListDisplay />,
         },
 
         {
           path: "/Series",
-          element: <SeriesList />,
-        },
-
-        {
-          path: "/WatchList/:id",
-          element: <WatchList />,
+          element: <SeriesListDisplay />,
         },
 
         {

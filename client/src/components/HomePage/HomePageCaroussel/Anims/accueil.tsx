@@ -8,8 +8,7 @@ function PopularAnims() {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhOTYxZjNkMjhmYjA0ODQwY2NiNDlkMmQzYjhlZTU1YiIsIm5iZiI6MTczMDg4NzY5OS43Mjc1MTE2LCJzdWIiOiI2NzI4ZWFiNzM5NDBjMTIwMmZmN2Q2ODEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0._wd1EUDlhgem0CdseijkxOfTQ_oEO9XLn5-vfTszIFg",
+      Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
     },
   };
 

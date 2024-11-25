@@ -1,12 +1,23 @@
 import { useState } from "react";
 import type { CineListProps } from "../../types/CineListProps";
 import "./style.css";
-export default function MovieCard({ movie }: { movie: CineListProps }) {
+export default function MovieCard({
+  movie,
+  addToWatchList,
+  removeFromWatchList,
+}: {
+  movie: CineListProps;
+  addToWatchList: (movie: CineListProps) => void;
+  removeFromWatchList: (movie: CineListProps) => void;
+}) {
   const [isFavoris, setIsFavoris] = useState(false);
-  const HandleFav = () => {
-    if (!isFavoris) {
-      setIsFavoris((fav) => !fav);
+  const handleToggleWatchList = () => {
+    if (isFavoris) {
+      removeFromWatchList(movie);
+    } else {
+      addToWatchList(movie);
     }
+    setIsFavoris(!isFavoris);
   };
   return (
     <>
@@ -22,14 +33,18 @@ export default function MovieCard({ movie }: { movie: CineListProps }) {
             <p>{movie.vote_average} ⭐</p>
             <p>{movie.vote_count} ❤️</p>
             <p>Date de sortie: {movie.release_date}</p>
-            <button onClick={HandleFav} className="FavIcone" type="button">
+            <button
+              onClick={handleToggleWatchList}
+              className="FavIcone"
+              type="button"
+            >
               <img
                 src={
                   isFavoris
                     ? "./src/assets/images/fillFavoris.png"
                     : "./src/assets/images/emptyFavoris.png"
                 }
-                alt=""
+                alt="Ajouter à la WatchList"
               />
             </button>
           </figcaption>

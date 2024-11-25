@@ -1,4 +1,5 @@
 import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
 interface SeriesProps {
   series: {
     id: number;
@@ -10,6 +11,11 @@ interface SeriesProps {
 }
 
 export default function Series({ series, SeriePath }: SeriesProps) {
+  const navigate = useNavigate();
+
+  const handleMovieClick = (serieId: string) => {
+    navigate(`/watchlist/${serieId}`);
+  };
   const settings = {
     className: "center",
     centerMode: false,
@@ -33,7 +39,11 @@ export default function Series({ series, SeriePath }: SeriesProps) {
       <Slider {...settings}>
         {series.map((serie) => (
           <article key={serie.id}>
-            <img src={`${SeriePath}${serie.poster_path}`} alt={serie.name} />
+            <img
+              onClick={() => handleMovieClick(serie.id)}
+              src={`${SeriePath}${serie.poster_path}`}
+              alt={serie.name}
+            />
           </article>
         ))}
       </Slider>

@@ -17,7 +17,7 @@ export default function Header() {
     <>
       <header id="top">
         <Link to="/">
-          <img src="./public/pop-corn_Box.png" alt="logo Pop Corn Box" />
+          <img src="/pop-corn_Box.png" alt="logo Pop Corn Box" />
         </Link>
 
         <nav className="navHeader">
@@ -29,7 +29,7 @@ export default function Header() {
         <nav className={visible ? "listHamburger active" : "listHamburger"}>
           <Link to="/">Accueil</Link>
           <Link to="/Movies">Films</Link>
-          <Link to="/series">Series</Link>
+          <Link to="/Series">Series</Link>
           <Link to="/animes">Animes</Link>
           <Link to="/WatchList">WatchList</Link>
         </nav>

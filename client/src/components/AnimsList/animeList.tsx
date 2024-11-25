@@ -19,7 +19,6 @@ export default function AnimeList() {
   const [filteredList, setFilteredList] = useState<AnimeListProps[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-
   const options = {
     method: "GET",
     headers: {

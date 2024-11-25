@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import "./style.css";
-
-import FilterCatalogue from "../FilterCatalogue/Filter";
 import SearchBar from "../SearchBar/searchBar";
 
 export type CineListProps = {
@@ -20,8 +18,7 @@ export default function MoviesList() {
   const [filteredList, setFilteredList] = useState<CineListProps[]>([]);
   const [pages, setPages] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [totalPages, setTotalPages] = useState(1);
-
+  console.info(setPages);
   const options = {
     method: "GET",
     headers: {
@@ -29,38 +26,43 @@ export default function MoviesList() {
       Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
     },
   };
-
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?language=fr&page=${pages}`,
-      options,
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setCineList(data.results);
-        setFilteredList(data.results);
-        setTotalPages(data.total_pages);
-      })
-      .catch((err) => console.error(err));
-  }, [pages]);
+    let allResults: CineListProps[] = [];
+    let currentPage = 1;
 
-  const handleNextPage = () => {
-    setPages(() => (pages < totalPages ? pages + 1 : pages));
-  };
-  const handlePrevPage = () => {
-    setPages(() => (pages > 1 ? pages - 1 : pages));
-  };
+    const fetchAllPages = () => {
+      fetch(
+        `https://api.themoviedb.org/3/movie/now_playing?language=fr&page=${pages}`,
+        options,
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          allResults = [...allResults, ...data.results].slice(0, 102);
+          if (currentPage < data.total_pages) {
+            currentPage++;
+            fetchAllPages();
+          } else {
+            setCineList(allResults);
+            setFilteredList(allResults);
+          }
+        })
+        .catch((error) =>
+          console.error("Erreur lors de la récupération :", error),
+        );
+    };
+
+    fetchAllPages();
+  }, [pages]);
 
   return (
     <>
-      <FilterCatalogue />
-      <h1>Les films</h1>
       <SearchBar
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         cineList={cineList}
         setFilteredList={setFilteredList}
       />
+      <h1>Les films</h1>
       <main className="movieContainer">
         {filteredList.map((movie: CineListProps) => (
           <section key={movie.id} className="movieList">
@@ -80,13 +82,6 @@ export default function MoviesList() {
           </section>
         ))}
       </main>
-
-      <button onClick={handleNextPage} type="button">
-        Suivant {pages}/319
-      </button>
-      <button onClick={handlePrevPage} type="button">
-        Précédent
-      </button>
     </>
   );
 }

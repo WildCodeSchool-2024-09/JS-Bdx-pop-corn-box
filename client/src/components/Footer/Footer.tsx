@@ -5,7 +5,9 @@ export default function Footer() {
     <footer>
       <nav className="footerNav">
         <Link to="/About">About</Link>
-        <a href="#top">Haut de page</a>
+        <a className="retourHautPage" href="#top">
+          Haut de page
+        </a>
       </nav>
       <p>
         WildCodeSchool and <strong>TMDB </strong>

@@ -25,11 +25,9 @@ p {
 }
 
 .movieContainer {
-  padding-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  justify-self: center;
-  margin-left: 2rem;
+  justify-items: center;
 }
 
 .movieList {
@@ -77,13 +75,18 @@ p {
   transition: 1s;
 }
 
-.rechercher {
+.search {
   width: 40%;
   height: 40px;
   margin-left: 10px;
   border-radius: 10px;
   border: 0px solid;
   text-align: center;
+  margin-bottom: 2rem;
+}
+
+label {
+  margin-top: 1rem;
 }
 
 .searchBarContainer {
@@ -120,23 +123,37 @@ button {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .movie-hover-text {
-    font-size: 0.7rem;
-  }
-  .movie-hover-text h2 {
-    font-size: 1rem;
-  }
-}
-
 @media screen and (max-width: 430px) {
   .movie-hover-text {
-    font-size: 0.5rem;
+    font-size: 0.7rem;
   }
   .movie-hover-text h2 {
     font-size: 0.8rem;
   }
   .movieContainer {
     width: 100%;
+  }
+  .search {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .movieContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .movieList {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+  }
+  .movieList img {
+    width: 150px;
+  }
+  .movie-hover-text {
+    font-size: 0.40rem;
+  }
+  .movie-hover-text h2 {
+    font-size: 0.5rem;
   }
 }

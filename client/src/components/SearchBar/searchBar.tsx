@@ -1,6 +1,6 @@
 import Fuse from "fuse.js";
 import { useEffect, useMemo } from "react";
-import type { CineListProps } from "../MovieList/MovieList";
+import type { CineListProps } from "../../types/CineListProps";
 type SearchBarProps = {
   searchTerm: string;
   setSearchTerm: (value: string) => void;

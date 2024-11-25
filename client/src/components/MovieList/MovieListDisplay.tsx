@@ -9,7 +9,6 @@ export default function MovieListDisplay() {
   const [cineList, setCineList] = useState<CineListProps[]>([]);
   const [filteredList, setFilteredList] = useState<CineListProps[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
-
   return (
     <>
       <SearchBar

@@ -59,6 +59,11 @@ p {
   align-items: center;
 }
 
+.FavIcone {
+  z-index: -100;
+  height: auto;
+}
+
 .movie-hover-text p {
   text-align: left;
 }

@@ -12,7 +12,7 @@ export default function FilterCatalogue() {
       headers: {
         accept: "application/json",
         Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhOTYxZjNkMjhmYjA0ODQwY2NiNDlkMmQzYjhlZTU1YiIsIm5iZiI6MTczMDczNzc3NS4zOTM1ODY2LCJzdWIiOiI2NzI4ZWFiNzM5NDBjMTIwMmZmN2Q2ODEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.3hTxfLqEU-mn3vqvTs8JvvATPzSiqY67QyMwfhgbGy8",
+          `Bearer ${import.meta.env.VITE_API_KEY}`,
       },
     };
     fetch("https://api.themoviedb.org/3/genre/movie/list?language=fr", options)

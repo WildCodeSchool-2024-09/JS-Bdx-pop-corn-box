@@ -3,6 +3,7 @@ import "./style.css";
 
 import FilterCatalogue from "../FilterCatalogue/Filter";
 import SearchBar from "../SearchBar/searchBar";
+import "../../services/root.css"
 
 export type CineListProps = {
   id: number;

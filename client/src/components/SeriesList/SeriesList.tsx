@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./style.css";
+import "../../services/root.css";
 
 import SearchBar from "../SearchBar/searchBar";
 

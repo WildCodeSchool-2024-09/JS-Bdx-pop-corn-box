@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import "./header.css";
+import "../../services/root.css";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";

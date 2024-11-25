@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./style.css";
 
 import SearchBar from "../SearchBar/searchBar";
+import "../../services/root.css"
 
 export type AnimeListProps = {
   id: number;

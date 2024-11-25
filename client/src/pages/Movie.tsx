@@ -1,9 +1,9 @@
-import MoviesList from "../components/MovieList/MovieList";
+import MovieListDisplay from "../components/MovieList/MovieListDisplay";
 
 export default function Movie() {
   return (
     <>
-      <MoviesList />
+      <MovieListDisplay />
     </>
   );
 }

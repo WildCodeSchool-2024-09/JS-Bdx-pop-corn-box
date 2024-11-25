@@ -1,9 +1,9 @@
 import "slick-carousel/slick/slick.css";
 import { useLocation } from "react-router-dom";
 import "slick-carousel/slick/slick-theme.css";
-import PopularAnims from "../Anims/accueil";
-import PopularMovies from "../PopularMovies/acceuil";
-import PopularSeries from "../PopularSeries/accueil";
+import PopularAnims from "./HomePageCaroussel/Anims/accueil";
+import PopularMovies from "./HomePageCaroussel/PopularMovies/acceuil";
+import PopularSeries from "./HomePageCaroussel/PopularSeries/accueil";
 
 export default function HomePage() {
   const Carousel = () => {

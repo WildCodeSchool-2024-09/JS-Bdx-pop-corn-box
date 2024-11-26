@@ -11,6 +11,7 @@ import About from "./components/About/About";
 import AnimeListDisplay from "./components/AnimsList/animeListDisplay";
 import MovieListDisplay from "./components/MovieList/MovieListDisplay";
 import SeriesListDisplay from "./components/SeriesList/SeriesListDisplay";
+import WatchList from "./components/WatchList/WatchList";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
@@ -40,6 +41,11 @@ const router = createBrowserRouter(
         {
           path: "/Series",
           element: <SeriesListDisplay />,
+        },
+
+        {
+          path: "/WatchList",
+          element: <WatchList />,
         },
 
         {

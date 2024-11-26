@@ -16,7 +16,7 @@ interface MoviesProps {
 
 export default function MoviesCaroussel({ movies, MoviePath }: MoviesProps) {
   const navigate = useNavigate();
-  const handleMovieClick = (movieId: string) => {
+  const handleMovieClick = (movieId: number) => {
     navigate(`/WatchList/${movieId}`);
   };
   const settings = {

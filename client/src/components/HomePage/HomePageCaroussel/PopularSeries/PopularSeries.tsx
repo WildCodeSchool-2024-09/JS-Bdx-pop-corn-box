@@ -13,8 +13,8 @@ interface SeriesProps {
 export default function Series({ series, SeriePath }: SeriesProps) {
   const navigate = useNavigate();
 
-  const handleMovieClick = (serieId: string) => {
-    navigate(`/watchlist/${serieId}`);
+  const handleMovieClick = (serieId: number) => {
+    navigate(`/Watchlist/${serieId}`);
   };
   const settings = {
     className: "center",

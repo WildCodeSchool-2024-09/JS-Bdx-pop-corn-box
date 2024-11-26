@@ -5,7 +5,7 @@ import type { CineListProps } from "../../../../types/CineListProps";
 import AnimsCaroussel from "./AnimsCaroussel";
 
 export default function FetchCarousselAnime() {
-  const [anims, setAnims] = useState<CineListProps[]>([]); // Typage explicite de l'état
+  const [anims, setAnims] = useState<CineListProps[]>([]);
   const AnimPath = "https://image.tmdb.org/t/p/w500/";
 
   useEffect(() => {
@@ -15,7 +15,6 @@ export default function FetchCarousselAnime() {
       try {
         const animeData = await fetchAnimeCaroussel();
 
-        // Filtrer les doublons avec un typage explicite
         const uniqueResults = animeData.results.filter(
           (anime: { id: number }) => {
             if (!uniqueIds.has(anime.id)) {

@@ -12,6 +12,7 @@ import AnimeListDisplay from "./components/AnimsList/animeListDisplay";
 import MovieListDisplay from "./components/MovieList/MovieListDisplay";
 import SeriesListDisplay from "./components/SeriesList/SeriesListDisplay";
 import WatchList from "./components/WatchList/WatchList";
+import { WatchListProvider } from "./components/WatchList/WatchListContext";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
@@ -52,6 +53,10 @@ const router = createBrowserRouter(
           path: "/About",
           element: <About />,
         },
+        {
+          path: "/WatchList",
+          element: <WatchList />,
+        },
       ],
     },
   ], // Renders the App component for the home page
@@ -70,7 +75,9 @@ if (rootElement == null) {
 // Render the app inside the root element
 createRoot(rootElement).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <WatchListProvider>
+      <RouterProvider router={router} />
+    </WatchListProvider>
   </StrictMode>,
 );
 

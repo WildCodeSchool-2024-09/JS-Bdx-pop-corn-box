@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { fetchAllSeries } from "../../services/serieService";
+import { fetchAllSeries } from "../../services/CatalogueService/CatalogueService";
 import type { CineListProps } from "../../types/CineListProps";
 import type { FetchMovie } from "../../types/FetchMovieProps";
 import type { MovieResponse } from "../../types/MovieResponse";

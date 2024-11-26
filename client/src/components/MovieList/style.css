@@ -1,13 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    0deg,
-    rgba(2, 0, 36, 0.9780287114845938) 0%,
-    rgba(255, 0, 56, 0.908000700280112) 44%,
-    rgba(2, 0, 36, 1) 100%
-  );
+  background-color: #f1faee;
   color: #f2f5ea;
 }
 
@@ -23,7 +17,9 @@ h3 {
 p {
   font-family: "Lato", sans-serif;
 }
-
+.watchlistTitle {
+  grid-column: span 3;
+}
 .movieContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -63,6 +59,11 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.FavIcone {
+  z-index: -100;
+  height: auto;
 }
 
 .movie-hover-text p {

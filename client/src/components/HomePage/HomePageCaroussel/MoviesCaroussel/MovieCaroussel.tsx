@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import { useNavigate } from "react-router-dom";
+import { settingsMovies } from "../../../../services/SettingCaroussel/SettingsCaroussel";
 
 interface MoviesProps {
   movies: {
@@ -15,39 +15,13 @@ interface MoviesProps {
 }
 
 export default function MoviesCaroussel({ movies, MoviePath }: MoviesProps) {
-  const navigate = useNavigate();
-  const handleMovieClick = (movieId: number) => {
-    navigate(`/WatchList/${movieId}`);
-  };
-  const settings = {
-    className: "center",
-    centerMode: false,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 500,
-    responsive: [
-      {
-        breakpoint: 480,
-        settings: {
-          autoplay: false,
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-    ],
-  };
-
   return (
     <main className="slider-container">
-      <Slider {...settings}>
+      <Slider {...settingsMovies}>
         {movies.map((movie) => (
           <section className="home-movieList" key={movie.id}>
             <figure className="movie-content">
               <img
-                onClick={() => handleMovieClick(movie.id)}
                 className="movie-img"
                 src={`${MoviePath}${movie.poster_path}`}
                 alt={movie.title}

@@ -1,51 +1,30 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
-const options = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
-  },
-};
-
-const WatchList = () => {
-  const { id } = useParams();
-  const [item, setItem] = useState<any>(null);
-
-  useEffect(() => {
-    const fetchItemDetails = async () => {
-      try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${id}`,
-          options,
-        );
-
-        if (!response.ok) {
-          throw new Error(`Erreur ${response.status}: ${response.statusText}`);
-        }
-        const data = await response.json();
-        setItem(data);
-      } catch (error) {
-        console.error("Erreur lors de la récupératon des détails", error);
-      }
-    };
-    fetchItemDetails();
-  }, [id]);
-  if (!item) return <p>Chargement...!</p>;
+import { useWatchList } from "./WatchListContext";
+export default function WatchList() {
+  const { watchList } = useWatchList();
   return (
-    <>
-      <h2>{item.title || item.name}</h2>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-        alt={item.title || item.name}
-      />
-      <p>{item.overview}</p>
-      <p>{item.vote_average} ⭐</p>
-      <p>{item.vote_count}❤️</p>
-      <p>Date de sortie: {item.release_date}</p>
-    </>
+    <main className="movieContainer">
+      <h1 className="watchlistTitle">Ma WatchList</h1>
+      {watchList.length === 0 ? (
+        <p>Aucun film ajouté à la WatchList.</p>
+      ) : (
+        watchList.map((movie) => (
+          <section key={movie.id} className="movieList">
+            <figure key={movie.id} className="movie-content">
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title || movie.name}
+              />
+              <figcaption className="movie-hover-text">
+                <h2>{movie.title || movie.name}</h2>
+                <p>{movie.overview}</p>
+                <p>{movie.vote_average} ⭐</p>
+                <p>{movie.vote_count} ❤️</p>
+                <p>Date de sortie: {movie.release_date}</p>
+              </figcaption>
+            </figure>
+          </section>
+        ))
+      )}
+    </main>
   );
-};
-
-export default WatchList;
+}

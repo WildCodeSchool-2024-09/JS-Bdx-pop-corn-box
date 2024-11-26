@@ -6,9 +6,9 @@ const WatchListContext = createContext<{
   addToWatchList: (movie: CineListProps) => void;
 } | null>(null);
 
-export const WatchListProvider: React.FC<{ children: React.ReactNode }> = ({
+export const WatchListProvider = ({
   children,
-}) => {
+}: { children: React.ReactNode }) => {
   const [watchList, setWatchList] = useState<CineListProps[]>([]);
 
   useEffect(() => {

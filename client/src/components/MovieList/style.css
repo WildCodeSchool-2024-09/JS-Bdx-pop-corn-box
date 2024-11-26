@@ -17,7 +17,9 @@ h3 {
 p {
   font-family: "Lato", sans-serif;
 }
-
+.watchlistTitle {
+  grid-column: span 3;
+}
 .movieContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -57,6 +59,11 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.FavIcone {
+  z-index: -100;
+  height: auto;
 }
 
 .movie-hover-text p {

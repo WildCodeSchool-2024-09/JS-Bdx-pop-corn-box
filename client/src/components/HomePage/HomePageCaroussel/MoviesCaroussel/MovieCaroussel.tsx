@@ -1,4 +1,5 @@
 import Slider from "react-slick";
+import { settingsMovies } from "../../../../services/SettingCaroussel/SettingsCaroussel";
 
 interface MoviesProps {
   movies: {
@@ -14,30 +15,9 @@ interface MoviesProps {
 }
 
 export default function MoviesCaroussel({ movies, MoviePath }: MoviesProps) {
-  const settings = {
-    className: "center",
-    centerMode: false,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 500,
-    responsive: [
-      {
-        breakpoint: 480,
-        settings: {
-          autoplay: false,
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-    ],
-  };
-
   return (
     <main className="slider-container">
-      <Slider {...settings}>
+      <Slider {...settingsMovies}>
         {movies.map((movie) => (
           <section className="home-movieList" key={movie.id}>
             <figure className="movie-content">

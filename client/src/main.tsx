@@ -45,6 +45,11 @@ const router = createBrowserRouter(
         },
 
         {
+          path: "/WatchList",
+          element: <WatchList />,
+        },
+
+        {
           path: "/About",
           element: <About />,
         },

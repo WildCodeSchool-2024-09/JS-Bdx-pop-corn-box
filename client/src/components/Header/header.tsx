@@ -6,7 +6,7 @@ export default function Header() {
     <>
       <header className="top">
         <Link to="/">
-          <img src="./public/pop-corn_Box.png" alt="logo Pop Corn Box" />
+          <img src="/pop-corn_Box.png" alt="logo Pop Corn Box" />
         </Link>
         <Navigation />
       </header>

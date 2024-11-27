@@ -10,7 +10,7 @@ export default function Footer() {
         </a>
       </nav>
       <p>
-        WildCodeSchool and <strong>TMDB </strong>
+        WildCodeSchool and <strong> TMDB</strong>
         ©2024 - All rights reserved
       </p>
     </footer>

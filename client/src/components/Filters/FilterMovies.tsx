@@ -4,8 +4,14 @@ type Categories = {
   id: number;
   name: string;
 };
-export default function FilterCatalogue() {
+interface filterMovieProps {
+  filterProps: (genreId: number) => void;
+}
+export default function FilterMovies({ filterProps }: filterMovieProps) {
   const [categories, setCategories] = useState<Categories[]>();
+  const filterGenres = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    filterProps(+event.target?.value);
+  };
   useEffect(() => {
     const options = {
       method: "GET",
@@ -20,8 +26,8 @@ export default function FilterCatalogue() {
       .catch((err) => console.error(err));
   });
   return (
-    <select id="categoryFilter">
-      <option value="all">Toutes les catégories</option>
+    <select onChange={(event) => filterGenres(event)} id="categoryFilter">
+      <option value="">Toutes les catégories</option>
       {categories?.map((category) => (
         <option value={category.id} key={category.id}>
           {category.name}
@@ -30,10 +36,3 @@ export default function FilterCatalogue() {
     </select>
   );
 }
-// - crée un menu déroulant qui affiche les catagories. done
-// - au clic sur la categorie ex(fantastique), recuperer les Datas de la categorie(film serie anime).
-// - afficher seulement les films series animes fantastique.
-
-// au clic recuperer le fetch de la page ex (film).
-// dans se fetch prendre l'id correspondant a la categorie cliqué .
-// afficher les film avec l'id correspondant

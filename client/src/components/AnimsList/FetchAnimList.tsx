@@ -7,6 +7,7 @@ import type { MovieResponse } from "../../types/MovieResponse";
 export default function FetchAnimList({
   setCineList,
   setFilteredList,
+  myGenre,
 }: FetchMovie) {
   useEffect(() => {
     const fetchAnims = async () => {
@@ -15,7 +16,10 @@ export default function FetchAnimList({
       const uniqueIds = new Set<number>();
       try {
         while (currentPage <= 5) {
-          const data: MovieResponse = await fetchAllAnimes(currentPage);
+          const data: MovieResponse = await fetchAllAnimes(
+            currentPage,
+            myGenre ?? 0,
+          );
           for (const animes of data.results) {
             if (!uniqueIds.has(animes.id)) {
               uniqueIds.add(animes.id);
@@ -31,7 +35,7 @@ export default function FetchAnimList({
       }
     };
     fetchAnims();
-  }, [setCineList, setFilteredList]);
+  }, [setCineList, setFilteredList, myGenre]);
 
   return null;
 }

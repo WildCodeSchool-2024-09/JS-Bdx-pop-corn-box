@@ -12,10 +12,18 @@ export const fetchAllMovies = async (
         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhOTYxZjNkMjhmYjA0ODQwY2NiNDlkMmQzYjhlZTU1YiIsIm5iZiI6MTczMjQ3ODE0OS4wNDA3MDg1LCJzdWIiOiI2NzI4ZWFiNzM5NDBjMTIwMmZmN2Q2ODEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.EenXtaVA9fXlBBASut-fKCGnJyaqljDkviqN2fhJHhs",
     },
   };
-  const response = await fetch(
+
+  console.log("genre", genre);
+  
+  const response = genre !== undefined ? await fetch(
     `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pages}1&sort_by=popularity.desc&with_genres=${genre}`,
     options,
-  );
+  ) : 
+  await fetch(
+    `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pages}1&sort_by=popularity.desc`,
+    options,
+  )
+  ;
   if (!response.ok) {
     throw new Error(`erreur de requête: ${response.status}`);
   }

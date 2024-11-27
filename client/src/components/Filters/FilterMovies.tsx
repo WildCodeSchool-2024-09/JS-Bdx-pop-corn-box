@@ -5,12 +5,18 @@ type Categories = {
   name: string;
 };
 interface filterMovieProps {
-  filterProps: (genreId: number) => void;
+  filterProps: (genreId: number | undefined) => void;
 }
 export default function FilterMovies({ filterProps }: filterMovieProps) {
   const [categories, setCategories] = useState<Categories[]>();
   const filterGenres = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    filterProps(+event.target?.value);
+    console.log("titi", event.target.value)
+    if (event.target.value === "") {
+      filterProps(undefined);
+    } else {
+      filterProps(+event.target?.value);
+    }
+
   };
   useEffect(() => {
     const options = {

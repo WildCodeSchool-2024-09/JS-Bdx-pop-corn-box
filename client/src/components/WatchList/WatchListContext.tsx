@@ -4,6 +4,7 @@ import type { CineListProps } from "../../types/CineListProps";
 const WatchListContext = createContext<{
   watchList: CineListProps[];
   addToWatchList: (movie: CineListProps) => void;
+  removeFromWatchList: (movie: CineListProps) => void;
 } | null>(null);
 
 export const WatchListProvider = ({
@@ -31,8 +32,14 @@ export const WatchListProvider = ({
     });
   };
 
+  const removeFromWatchList = (movie: CineListProps) => {
+    setWatchList((prev) => prev.filter((fav) => fav.id !== movie.id));
+  };
+
   return (
-    <WatchListContext.Provider value={{ watchList, addToWatchList }}>
+    <WatchListContext.Provider
+      value={{ watchList, addToWatchList, removeFromWatchList }}
+    >
       {children}
     </WatchListContext.Provider>
   );

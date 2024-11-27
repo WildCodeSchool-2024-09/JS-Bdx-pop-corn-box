@@ -1,6 +1,8 @@
 import { useWatchList } from "./WatchListContext";
+
 export default function WatchList() {
-  const { watchList } = useWatchList();
+  const { watchList, removeFromWatchList } = useWatchList(); // Utilisez directement la fonction depuis le contexte
+
   return (
     <main className="movieContainer">
       <h1 className="watchlistTitle">Ma WatchList</h1>
@@ -9,7 +11,7 @@ export default function WatchList() {
       ) : (
         watchList.map((movie) => (
           <section key={movie.id} className="movieList">
-            <figure key={movie.id} className="movie-content">
+            <figure className="movie-content">
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title || movie.name}
@@ -20,6 +22,17 @@ export default function WatchList() {
                 <p>{movie.vote_average} ⭐</p>
                 <p>{movie.vote_count} ❤️</p>
                 <p>Date de sortie: {movie.release_date}</p>
+                <button
+                  onClick={() => removeFromWatchList(movie)} // Appel direct depuis le contexte
+                  className="FavIcone"
+                  type="button"
+                  aria-label={`Supprimer ${movie.title || movie.name} de la WatchList`}
+                >
+                  <img
+                    src="./src/assets/images/deleteFav.png"
+                    alt={`Icône pour supprimer ${movie.title || movie.name}`}
+                  />
+                </button>
               </figcaption>
             </figure>
           </section>

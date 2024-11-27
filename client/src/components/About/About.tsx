@@ -14,11 +14,7 @@ export default function About() {
       </article>
       <article>
         <h2>La team</h2>
-        <img
-          className="team-pic"
-          src="/istockphoto-1646954303-2048x2048.jpg"
-          alt=""
-        />
+        <img className="team-pic" src="/Pop-corn Box Team.jpg" alt="" />
         <h2>Qui sommes nous !</h2>
         <p className="about">
           Rencontrez notre équipe de développeurs passionnés et talentueux.

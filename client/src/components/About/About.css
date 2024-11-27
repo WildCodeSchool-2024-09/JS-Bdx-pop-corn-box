@@ -1,0 +1,39 @@
+.team-pic {
+  width: 60%;
+  height: 30%;
+  display: flex;
+  margin: auto;
+  border-radius: 15px;
+}
+.about {
+  width: 70ch;
+  display: flex;
+  margin: auto;
+  text-align: center;
+}
+.team-member {
+  display: flex;
+}
+.members {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .team-pic {
+    width: 80%;
+    height: 60%;
+    display: flex;
+    margin: auto;
+    border-radius: 15px;
+  }
+  .about {
+    width: 20ch;
+    display: flex;
+    margin: auto;
+    text-align: center;
+  }
+}

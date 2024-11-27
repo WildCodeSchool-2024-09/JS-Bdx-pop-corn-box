@@ -18,7 +18,9 @@ h3 {
 p {
   font-family: var(--font-familly);
 }
-
+.watchlistTitle {
+  grid-column: span 3;
+}
 .movieContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -46,18 +48,35 @@ p {
 
 .movie-content {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .movie-hover-text {
   position: absolute;
   top: 0;
-  width: 100%;
   color: var(--primary-color);
   font-size: var(--font-size);
+  width: 80%;
   font-weight: bold;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding-left: 1rem;
+}
+
+.movie-hover-text h2 {
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+.FavIcone {
+  z-index: -100;
+  border-radius: 40%;
+  border: 0px solid;
+  align-self: flex-end;
+  margin: auto;
+  margin-top: 0.5rem;
 }
 
 .movie-hover-text p {
@@ -78,10 +97,12 @@ p {
   border: 0px solid;
   text-align: center;
   margin-bottom: 2rem;
+  box-shadow: 1px 1px 5px #0000004f;
 }
 
 label {
   margin-top: 1rem;
+  color: black;
 }
 
 .searchBarContainer {
@@ -91,45 +112,35 @@ label {
   align-items: center;
 }
 
-button {
-  cursor: pointer;
-  width: 20%;
-  height: 50px;
-  margin: 30px;
-  border-radius: 15px;
-  border: 0px;
-  color: var(--secondary-color);
-  background-color: var(--primary-color);
-  transition: 0.5s;
-  font-size: var(--font-size);
-}
-
-.button:hover {
-  background-color: var(--primary-color);
-  transform: scale(1.1);
+#categoryFilter {
+  font-size: 24px;
 }
 
 @media screen and (max-width: 1024px) {
-  .movie-hover-text {
+  .movie-hover-text p {
     font-size: 1rem;
   }
   .movie-hover-text h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+  }
+  .FavIcone {
+    margin-top: 1rem;
+  }
+  .FavIcone img {
+    width: 50%;
+    height: 50%;
   }
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 800px) {
   .movie-hover-text {
-    font-size: 0.7rem;
+    align-items: center;
   }
-  .movie-hover-text h2 {
+  .movie-hover-text p {
     font-size: 0.8rem;
   }
-  .movieContainer {
-    width: 100%;
-  }
-  .search {
-    width: 80%;
+  .movie-hover-text h2 {
+    font-size: 1rem;
   }
 }
 
@@ -137,18 +148,20 @@ button {
   .movieContainer {
     grid-template-columns: repeat(2, 1fr);
   }
-  .movieList {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-  }
   .movieList img {
-    width: 150px;
+    width: 100%;
   }
-  .movie-hover-text {
-    font-size: 0.40rem;
+  .movie-hover-text p {
+    font-size: 0.5rem;
   }
   .movie-hover-text h2 {
-    font-size: 0.5rem;
+    font-size: 0.7rem;
+  }
+  .FavIcone img {
+    width: 50%;
+    height: 50%;
+  }
+  .search {
+    width: 80%;
   }
 }

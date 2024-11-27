@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "../MovieList/style.css";
+
 import type { CineListProps } from "../../types/CineListProps";
 import FilterMovies from "../Filters/FilterMovies";
 import SearchBar from "../SearchBar/searchBar";
+import { useWatchList } from "../WatchList/usewatchList";
 import FetchMoviesList from "./FetchMovieList";
 import MovieCard from "./MovieCard";
 
@@ -11,6 +13,8 @@ export default function MovieListDisplay() {
   const [filteredList, setFilteredList] = useState<CineListProps[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [genre, setGenre] = useState<number | undefined>();
+  const { watchList, addToWatchList, removeFromWatchList } = useWatchList();
+  console.info(watchList);
   return (
     <>
       <FilterMovies filterProps={setGenre} />
@@ -27,7 +31,12 @@ export default function MovieListDisplay() {
       />
       <main className="movieContainer">
         {filteredList.map((movies) => (
-          <MovieCard key={movies.id} movie={movies} />
+          <MovieCard
+            key={movies.id}
+            movie={movies}
+            addToWatchList={addToWatchList}
+            removeFromWatchList={removeFromWatchList}
+          />
         ))}
       </main>
     </>

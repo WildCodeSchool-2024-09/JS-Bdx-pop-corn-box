@@ -8,3 +8,7 @@ footer {
   display: flex;
   justify-content: center;
 }
+footer p {
+  display: flex;
+  justify-self: center;
+}

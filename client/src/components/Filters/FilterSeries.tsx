@@ -3,13 +3,17 @@ type Categories = {
   id: number;
   name: string;
 };
-interface filterAnimesProps {
-  filterProps: (genreId: number) => void;
+interface filterSeriesProps {
+  filterProps: (genreId: number | undefined) => void;
 }
-export default function FilterAnimes({ filterProps }: filterAnimesProps) {
+export default function FilterAnimes({ filterProps }: filterSeriesProps) {
   const [categories, setCategories] = useState<Categories[]>();
   const filterGenres = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    filterProps(+event.target?.value);
+    if (event.target.value === "") {
+      filterProps(undefined);
+    } else {
+      filterProps(+event.target?.value);
+    }
   };
   useEffect(() => {
     const options = {
@@ -26,7 +30,7 @@ export default function FilterAnimes({ filterProps }: filterAnimesProps) {
   });
   return (
     <select onChange={(event) => filterGenres(event)} id="categoryFilter">
-      <option value="16">Toutes les catégories</option>
+      <option value="">Toutes les catégories</option>
       {categories?.map((category) => (
         <option value={category.id} key={category.id}>
           {category.name}

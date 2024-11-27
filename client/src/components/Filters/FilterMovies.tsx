@@ -10,13 +10,11 @@ interface filterMovieProps {
 export default function FilterMovies({ filterProps }: filterMovieProps) {
   const [categories, setCategories] = useState<Categories[]>();
   const filterGenres = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log("titi", event.target.value)
     if (event.target.value === "") {
       filterProps(undefined);
     } else {
       filterProps(+event.target?.value);
     }
-
   };
   useEffect(() => {
     const options = {

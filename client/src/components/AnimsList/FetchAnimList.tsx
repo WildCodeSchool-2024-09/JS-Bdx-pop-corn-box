@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import { fetchAllAnimes } from "../../services/animeService";
+
+import { fetchAllAnimes } from "../../services/CatalogueService/CatalogueService";
 import type { CineListProps } from "../../types/CineListProps";
 import type { FetchMovie } from "../../types/FetchMovieProps";
 import type { MovieResponse } from "../../types/MovieResponse";
 
 export default function FetchAnimList({
   setCineList,
-  setFilteredList,
-  myGenre,
+  setFilteredList
 }: FetchMovie) {
   useEffect(() => {
     const fetchAnims = async () => {
@@ -17,8 +17,7 @@ export default function FetchAnimList({
       try {
         while (currentPage <= 5) {
           const data: MovieResponse = await fetchAllAnimes(
-            currentPage,
-            myGenre ?? 0,
+            currentPage
           );
           for (const animes of data.results) {
             if (!uniqueIds.has(animes.id)) {
@@ -35,7 +34,7 @@ export default function FetchAnimList({
       }
     };
     fetchAnims();
-  }, [setCineList, setFilteredList, myGenre]);
+  }, [setCineList, setFilteredList]);
 
   return null;
 }

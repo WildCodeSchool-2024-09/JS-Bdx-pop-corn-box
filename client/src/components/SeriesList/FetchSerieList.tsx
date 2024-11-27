@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { fetchAllSeries } from "../../services/serieService";
+import { fetchAllSeries } from "../../services/CatalogueService/CatalogueService";
 import type { CineListProps } from "../../types/CineListProps";
 import type { FetchMovie } from "../../types/FetchMovieProps";
 import type { MovieResponse } from "../../types/MovieResponse";
@@ -7,6 +7,7 @@ import type { MovieResponse } from "../../types/MovieResponse";
 export default function FetchSerieList({
   setCineList,
   setFilteredList,
+  myGenre,
 }: FetchMovie) {
   useEffect(() => {
     const fetchSeries = async () => {
@@ -15,7 +16,7 @@ export default function FetchSerieList({
       const uniqueIds = new Set<number>();
       try {
         while (currentPage <= 5) {
-          const data: MovieResponse = await fetchAllSeries(currentPage);
+          const data: MovieResponse = await fetchAllSeries(currentPage, myGenre);
           for (const serie of data.results) {
             if (!uniqueIds.has(serie.id)) {
               uniqueIds.add(serie.id);
@@ -31,7 +32,7 @@ export default function FetchSerieList({
       }
     };
     fetchSeries();
-  }, [setCineList, setFilteredList]);
+  }, [setCineList, setFilteredList, myGenre]);
 
   return null;
 }

@@ -41,7 +41,7 @@ export default function SearchBar({
         type="search"
         name="searchBar"
         className="search"
-        placeholder="Que voulez vous regardez"
+        placeholder="Que voulez vous regardez ?"
         onChange={handleSearchTerm}
       />
     </header>

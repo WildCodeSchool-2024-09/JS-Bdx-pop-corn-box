@@ -5,7 +5,7 @@ const options = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhOTYxZjNkMjhmYjA0ODQwY2NiNDlkMmQzYjhlZTU1YiIsIm5iZiI6MTczMjU1NzIwMC44MDQ1NjUsInN1YiI6IjY3MjhlYWI3Mzk0MGMxMjAyZmY3ZDY4MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.B_cvDMLtxzLCg_aSrQroy7xbzIn3D0BwyH5fJnbteMI",
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhOTYxZjNkMjhmYjA0ODQwY2NiNDlkMmQzYjhlZTU1YiIsIm5iZiI6MTczMjcwMDc2My43Njk5NjcsInN1YiI6IjY3MjhlYWI3Mzk0MGMxMjAyZmY3ZDY4MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hwagiPBngcyn3MsOLMD8aCv6GOP-pFcXeEQrySsdrws",
   },
 };
 export const fetchAllAnimes = async (pages: number): Promise<MovieResponse> => {

@@ -3,9 +3,9 @@ import "../MovieList/style.css";
 
 import type { CineListProps } from "../../types/CineListProps";
 import SearchBar from "../SearchBar/searchBar";
+import { useWatchList } from "../WatchList/usewatchList";
 import FetchMoviesList from "./FetchMovieList";
 import MovieCard from "./MovieCard";
-import { useWatchList } from "./usewatchList";
 
 export default function MovieListDisplay() {
   const [cineList, setCineList] = useState<CineListProps[]>([]);

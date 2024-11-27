@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "../MovieList/style.css";
 import type { CineListProps } from "../../types/CineListProps";
-import { useWatchList } from "../MovieList/usewatchList";
 import SearchBar from "../SearchBar/searchBar";
+import { useWatchList } from "../WatchList/usewatchList";
 import FetchSerieList from "./FetchSerieList";
 import SerieCard from "./SerieCard";
 

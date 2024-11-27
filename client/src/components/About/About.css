@@ -9,7 +9,13 @@
   width: 70ch;
   display: flex;
   margin: auto;
+  width: 80%;
   text-align: center;
+  border: 0px solid black;
+  box-shadow: 1px 1px 20px 1px #00000099;
+  border-radius: 15px;
+  text-align: center;
+  padding: 1rem;
 }
 .about-project {
   display: flex;

@@ -36,7 +36,7 @@ export const fetchMovieCaroussel = async (): Promise<AnimesResponse> => {
 
 export const fetchSerieCaroussel = async (): Promise<AnimesResponse> => {
   const response = await fetch(
-    "https://api.themoviedb.org/3/tv/popular?language=en-fr&page=1",
+    "https://api.themoviedb.org/3/tv/popular?language=fr&page=1",
     options,
   );
 

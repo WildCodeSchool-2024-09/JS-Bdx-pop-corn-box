@@ -9,10 +9,24 @@
   width: 70ch;
   display: flex;
   margin: auto;
+  width: 80%;
   text-align: center;
+  border: 0px solid black;
+  box-shadow: 1px 1px 20px 1px #00000099;
+  border-radius: 15px;
+  text-align: center;
+  padding: 1rem;
 }
-.team-member {
+.about-project {
   display: flex;
+  margin: auto;
+  text-align: center;
+  width: 80%;
+  border: 0px solid black;
+  box-shadow: 1px 1px 20px 1px #00000099;
+  border-radius: 15px;
+  text-align: center;
+  padding: 1rem;
 }
 .members {
   display: flex;
@@ -21,7 +35,9 @@
   list-style: none;
   margin-bottom: 2rem;
 }
-
+.about-titles {
+  margin: 1rem;
+}
 @media screen and (max-width: 768px) {
   .team-pic {
     width: 80%;
@@ -31,9 +47,40 @@
     border-radius: 15px;
   }
   .about {
-    width: 20ch;
+    width: 80%;
     display: flex;
     margin: auto;
-    text-align: center;
+    border: 0px solid black;
+    box-shadow: 1px 1px 20px 1px #00000099;
+    border-radius: 15px;
+    overflow-y: scroll;
+    height: 15rem;
+    text-align: left;
+    padding: 1rem;
+  }
+  .about {
+    --sb-track-color: #232e33;
+    --sb-thumb-color: #4e5d558d;
+    --sb-size: 14px;
+  }
+
+  .about::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  .about::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 15px;
+  }
+
+  .about::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 15px;
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    .about {
+      scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
   }
 }

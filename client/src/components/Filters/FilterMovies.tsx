@@ -30,7 +30,11 @@ export default function FilterMovies({ filterProps }: filterMovieProps) {
       .catch((err) => console.error(err));
   });
   return (
-    <select onChange={(event) => filterGenres(event)} id="categoryFilter">
+    <select
+      className="selectFilter"
+      onChange={(event) => filterGenres(event)}
+      id="categoryFilter"
+    >
       <option value="">Toutes les catégories</option>
       {categories?.map((category) => (
         <option value={category.id} key={category.id}>

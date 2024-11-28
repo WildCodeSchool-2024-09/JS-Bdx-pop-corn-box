@@ -122,6 +122,14 @@ label {
   font-size: 24px;
 }
 
+.selectFilter {
+  border-radius: 15px;
+  margin-left: 1rem;
+  padding: 0.3rem;
+  background-color: lightgray;
+  box-shadow: 1px 1px 10px 4px #ffffff30;
+}
+
 @media screen and (max-width: 1024px) {
   .movie-hover-text p {
     font-size: 1rem;

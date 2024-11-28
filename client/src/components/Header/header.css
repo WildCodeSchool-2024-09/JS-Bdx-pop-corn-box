@@ -28,17 +28,10 @@ nav {
 }
 
 a {
-  font-family: "Sour Grummy", sans-serif;
+  font-family: var(--font-familly-title);
   text-decoration: none;
-  color: whitesmoke;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-a:hover {
-  letter-spacing: 0.4rem;
-  color: blue;
+  color: var(--primary-color);
+  font-size: var(--font-size);
 }
 
 header img {
@@ -52,7 +45,7 @@ header img {
     top: 0;
   }
   header svg {
-    color: aliceblue;
+    color: var(--primary-color);
     margin-right: 1rem;
   }
   .hamburger-icon {
@@ -66,7 +59,7 @@ header img {
   }
   .listHamburger {
     display: none;
-    color: aliceblue;
+    color: var(--primary-color);
     position: fixed;
     width: 100vw;
     height: 100vh;

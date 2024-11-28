@@ -7,4 +7,5 @@ export type CineListProps = {
   vote_average: string;
   vote_count: number;
   release_date: string;
+  myGenre?: number;
 };

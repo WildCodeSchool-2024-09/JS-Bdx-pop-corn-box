@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Jersey+10&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  background-color: #fdfff7;
+}
+.home-movieList {
+  overflow: hidden;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+.home-movieList img {
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  transition: filter 0.5s;
+  border-radius: 15px;
+}
+
+.home-movieList:hover img {
+  filter: brightness(30%);
+}
+
+.movie-content {
+  position: relative;
+}
+
+.hover-text {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 70%;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-movieList:hover .hover-text {
+  opacity: 1;
+  z-index: 2;
+  transition: 0.3s;
+}
+
+.slick-slide {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.slick-slide .movie-img {
+  width: 70%;
+  transform: none;
+  justify-self: center;
+}
+
+.title {
+  font-family: "Sour Gummy", sans-serif;
+  color: whitesmoke;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.movie-container {
+  border-radius: 15px;
+}
+
+.slider-container {
+  width: 60%;
+  margin: auto;
+}
+
+.slick-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  transition: 0.5s ease-in-out;
+}
+
+.slick-prev,
+.slick-next {
+  border-radius: 50%;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+  transform: translate(none);
+  -webkit-transform: none;
+}
+.slick-next:before {
+  margin-left: 1rem;
+}
+
+.slick-prev {
+  left: -2.5rem;
+}
+
+.slick-next:before {
+  color: white;
+}
+.slick-prev:before {
+  color: white;
+}
+@media screen and (max-width: 425px) {
+  * {
+    box-sizing: border-box;
+  }
+  .home-movieList:hover img {
+    filter: brightness(1);
+  }
+  .slick-slide .home-movie-img {
+    width: 100%;
+  }
+  .hover-text {
+    display: none;
+  }
+  .home-movieList {
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: 1rem;
+  }
+  .slider-container .movie-img {
+    width: 100%;
+    margin: auto;
+  }
+}

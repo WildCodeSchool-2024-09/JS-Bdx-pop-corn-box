@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Jersey+10&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Jersey+10&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.top {
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  background-color: #0d13219d;
+}
+
+header .svg-inline--fa {
+  display: none;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding-right: 1rem;
+}
+
+a {
+  font-family: var(--font-familly-title);
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: var(--font-size);
+}
+
+header img {
+  width: 150px;
+  height: 150px;
+}
+
+@media screen and (max-width: 768px) {
+  .top {
+    position: sticky;
+    top: 0;
+  }
+  header svg {
+    color: var(--primary-color);
+    margin-right: 1rem;
+  }
+  .hamburger-icon {
+    align-self: center;
+  }
+
+  header .svg-inline--fa {
+    display: flex;
+    height: 50px;
+    z-index: 100;
+  }
+  .listHamburger {
+    display: none;
+    color: var(--primary-color);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    padding: 1rem;
+    z-index: 999;
+    background: linear-gradient(0deg, rgba(42, 62, 44, 0.664) 0%, #000000a3);
+    border-radius: 1rem;
+    box-shadow: -4px 4px 15px rgba(0, 0, 0, 0.753);
+  }
+  .listHamburger.active {
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+  }
+
+  .listHamburger a {
+    pointer-events: auto;
+    font-size: 2rem;
+  }
+}

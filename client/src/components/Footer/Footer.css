@@ -1,0 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
+footer {
+  align-items: center;
+}
+.footerNav {
+  display: flex;
+  justify-content: center;
+}
+footer p {
+  display: flex;
+  justify-self: center;
+}

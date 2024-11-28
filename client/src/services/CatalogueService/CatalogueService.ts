@@ -16,35 +16,40 @@ export const fetchAllAnimes = async (pages: number): Promise<MovieResponse> => {
   return response.json();
 };
 
-export const fetchAllMovies = async (pages: number, genre?: number): Promise<MovieResponse> => {
-  const response = genre !== undefined ? await fetch(
-    `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pages}1&sort_by=popularity.desc&with_genres=${genre}`,
-    options,
-  ) : 
-  await fetch(
-    `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pages}1&sort_by=popularity.desc`,
-    options,
-  )
-  ;
+export const fetchAllMovies = async (
+  pages: number,
+  genre?: number,
+): Promise<MovieResponse> => {
+  const response =
+    genre !== undefined
+      ? await fetch(
+          `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pages}1&sort_by=popularity.desc&with_genres=${genre}`,
+          options,
+        )
+      : await fetch(
+          `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pages}1&sort_by=popularity.desc`,
+          options,
+        );
   if (!response.ok) {
     throw new Error(`erreur de requête: ${response.status}`);
   }
   return response.json();
 };
 
-export const fetchAllSeries = async (pages: number, genre? : number): Promise<MovieResponse> => {
-
-  console.log("genre", genre);
-  
-  const response = genre !== undefined ? await fetch(
-    `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${pages}&sort_by=popularity.desc&without_genres=16&with_genres=${genre}`,
-    options,
-  ):
-  await fetch(
-    `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${pages}&sort_by=popularity.desc&without_genres=16`,
-    options,
-  )
-  ;
+export const fetchAllSeries = async (
+  pages: number,
+  genre?: number,
+): Promise<MovieResponse> => {
+  const response =
+    genre !== undefined
+      ? await fetch(
+          `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${pages}&sort_by=popularity.desc&without_genres=16&with_genres=${genre}`,
+          options,
+        )
+      : await fetch(
+          `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${pages}&sort_by=popularity.desc&without_genres=16`,
+          options,
+        );
   if (!response.ok) {
     throw new Error(`Erreur de requête: ${response.status}`);
   }

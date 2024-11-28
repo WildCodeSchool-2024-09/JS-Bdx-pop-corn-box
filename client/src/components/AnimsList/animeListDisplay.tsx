@@ -23,7 +23,6 @@ export default function AnimeListDisplay() {
       <FetchAnimList
         setCineList={setCineList}
         setFilteredList={setFilteredList}
-
       />
       <main className="movieContainer">
         {filteredList.map((animes) => (

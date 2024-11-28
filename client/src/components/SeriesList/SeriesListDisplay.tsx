@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "../MovieList/style.css";
 import type { CineListProps } from "../../types/CineListProps";
+import FilterSeries from "../Filters/FilterSeries";
 import SearchBar from "../SearchBar/searchBar";
 import { useWatchList } from "../WatchList/usewatchList";
 import FetchSerieList from "./FetchSerieList";
 import SerieCard from "./SerieCard";
-import FilterSeries from "../Filters/FilterSeries";
 
 export default function SeriesListDisplay() {
   const [cineList, setCineList] = useState<CineListProps[]>([]);

@@ -16,7 +16,10 @@ export default function FetchSerieList({
       const uniqueIds = new Set<number>();
       try {
         while (currentPage <= 5) {
-          const data: MovieResponse = await fetchAllSeries(currentPage, myGenre);
+          const data: MovieResponse = await fetchAllSeries(
+            currentPage,
+            myGenre,
+          );
           for (const serie of data.results) {
             if (!uniqueIds.has(serie.id)) {
               uniqueIds.add(serie.id);

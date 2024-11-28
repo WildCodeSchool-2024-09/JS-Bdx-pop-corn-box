@@ -4,8 +4,8 @@ export default function About() {
   return (
     <section>
       <article>
-        <h2>Pop-Corn Box</h2>
-        <p className="about">
+        <h2 className="about-titles">Pop-Corn Box</h2>
+        <p className="about-project">
           Pop-Corn Box est le projet n°2 de 4 développeurs web issus de la promo
           2025 de la Wild Code Shool Bordeaux en collabortion avec l'API de The
           Movie Database (TMDb) pour afficher des informations sur les films et
@@ -13,9 +13,9 @@ export default function About() {
         </p>
       </article>
       <article>
-        <h2>La team</h2>
+        <h2 className="about-titles">La team</h2>
         <img className="team-pic" src="/Pop-corn Box Team.jpg" alt="" />
-        <h2>Qui sommes nous !</h2>
+        <h2 className="about-titles">Qui sommes nous !</h2>
         <p className="about">
           Rencontrez notre équipe de développeurs passionnés et talentueux.
           Notre équipe de magiciens du Web a su transformer de simples projets
@@ -33,7 +33,7 @@ export default function About() {
           Toujours en quête de perfection, nous ne lâchons jamais notre café ni
           notre clavier !
         </p>
-        <h2 className="team-member">Team members</h2>
+        <h2 className="about-titles">Team members</h2>
         <ul className="members">
           <li>
             <a

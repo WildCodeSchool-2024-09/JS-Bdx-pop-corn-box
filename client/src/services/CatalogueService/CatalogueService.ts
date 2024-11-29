@@ -4,8 +4,7 @@ const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhOTYxZjNkMjhmYjA0ODQwY2NiNDlkMmQzYjhlZTU1YiIsIm5iZiI6MTczMjcwMDc2My43Njk5NjcsInN1YiI6IjY3MjhlYWI3Mzk0MGMxMjAyZmY3ZDY4MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hwagiPBngcyn3MsOLMD8aCv6GOP-pFcXeEQrySsdrws",
+    Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
   },
 };
 export const fetchAllAnimes = async (pages: number): Promise<MovieResponse> => {
